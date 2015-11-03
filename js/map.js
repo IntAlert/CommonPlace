@@ -1,4 +1,5 @@
 var map;
+var userCoords;
 
 var ref = new Firebase("https://commonplaceapp.firebaseio.com");
 ref.authWithPassword({
@@ -22,9 +23,10 @@ function initMap() {
 
      if (navigator.geolocation) {
          navigator.geolocation.getCurrentPosition(function (position) {
-             initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-             map.setCenter(initialLocation);
+             userCoords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+             map.setCenter(userCoords);
              getEvents(map);
+             drawRadius(map, userCoords);
          });
      }
 }
@@ -45,4 +47,18 @@ function getEvents(map) {
         });
         eventMarker.setMap(map);
     })
+}
+
+function drawRadius(map, userCoords) {
+    var userRadius = new google.maps.Circle({
+        strokeColor: '#FF0000',
+        strokeOpacity: 0.6,
+        strokeWeight: 2,
+        fillColor: '#FF0000',
+        fillOpacity: 0.15,
+        map: map,
+        center: userCoords,
+        radius: 2000
+    });
+    userRadius.setMap(map);
 }
