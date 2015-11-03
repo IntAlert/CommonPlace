@@ -62,3 +62,9 @@ function drawRadius(map, userCoords) {
     });
     userRadius.setMap(map);
 }
+
+function logout() {
+    console.log("LOGGING OUT");
+    ref.unauth();
+    location.reload();
+}

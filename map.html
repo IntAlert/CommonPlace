@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
         <title>Common Place</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/map.css">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script src='https://cdn.firebase.com/js/client/2.3.0/firebase.js'></script>
         <script src="js/map.js"></script>
-<!--        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBg7LduQ19oLO6vXHbrJCC_8lMCjeNh084&callback=initMap"></script>-->
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBg7LduQ19oLO6vXHbrJCC_8lMCjeNh084&callback=initMap"></script>
     </head>
     <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Common Place</a>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Map</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-header">Settings</li>
+                                <li><a href="https://github.com/dlucas94/CommonPlace" target="_blank">Help</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#" onclick="logout()">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
         <div id="map"></div>
     </body>
 </html>
