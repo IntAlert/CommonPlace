@@ -65,6 +65,10 @@ function getEvents(map) {
         var coords = {lat: lat, lng: lon};
         var name = event.name;
         var details = event.details;
+        var datestart = event.datestart;
+        var dateend = event.dateend;
+        var website = event.website;
+        console.log("WEB: " + website);
         var eventMarker = new google.maps.Marker({
             position: coords,
             map: map,
@@ -72,7 +76,8 @@ function getEvents(map) {
         });
         eventMarker.setMap(map);
         
-        var contentString = '<h3><center>' + name + '</center></h3><hr>' + '<p><b>Details: </b>' + details + '</p>';
+        var contentString = '<h3><center>' + name + '</center></h3><hr>' + 
+            '<p><b>Details: </b>' + details + '</p><p><b>Date: </b>' + datestart + ' - ' + dateend + '</p><p><b>Website: </b>' + website + '</p>';
         eventMarker.info = new google.maps.InfoWindow({
             content: contentString,
         });
