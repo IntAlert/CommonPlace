@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <header>Commonplace</header>
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="../js/jquery-2.1.4.min.js"></script>
+        <script src="https://connect.facebook.net/en_US/all.js"></script>
+        <script src="../js/facebookAuth.js"></script>
+    </head>
+    
+    <body>
+        <h3>Please Login</h3>
+        <form>
+            <p>Username</p>
+            <input type="text" name="user">
+            <p>Password</p>
+            <input type="text" name="pass"><br>
+        </form>
+        <h3>Don't have an account?<br>Please sign-up!</h3>
+<!--
+        <a href="signup.html">Create New Account</a><br>
+        <p>Or sign in with Facebook</p><br>
+        <div id="fb-root"></div>
+        <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
+        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+        <div id="loginBtn"></div>
+        <div id="status"></div>
+-->
+        <div id="userDetails" style="display: none;">
+<img id="userPic" src="">
+  
+ 
+<div id="userInfo">
+</div>
+</div>
+<button id="loginBtn" onclick="logIn();" value="Login">Login</button>
+<button id="logoutBtn" onclick="logOut();" value="Logout" style="display: none;">Logout</button>
+    </body>
+</html>
