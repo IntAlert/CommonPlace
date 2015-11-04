@@ -1,3 +1,9 @@
+$(function() {
+    $( "#slider" ).slider();
+});
+
+
+
 var map;
 var userCoords;
 
@@ -32,7 +38,7 @@ function initMap() {
 }
 
 function getEvents(map) {
-    var ref = new Firebase("https://commonplaceapp.firebaseio.com/events")
+    var ref = new Firebase("https://commonplaceapp.firebaseio.com/events");
     ref.on('child_added', function(snapshot){
         var event = snapshot.val();
         console.log(event);
@@ -46,7 +52,7 @@ function getEvents(map) {
             title: name
         });
         eventMarker.setMap(map);
-    })
+    });
 }
 
 function drawRadius(map, userCoords) {
