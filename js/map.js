@@ -4,9 +4,11 @@ $(function() {
         value: 2000,
         min: 500,
         max: 100000,
+        step: 500,
         slide: function( event, ui ) {
             var radius = ui.value;
-            $( "#distance" ).val( radius + "m" );
+            radius = radius/1000;
+            $( "#distance" ).val( radius + "km" );
         },
         change: function( event, ui ) {
             var radius = ui.value;
@@ -14,7 +16,7 @@ $(function() {
 //            drawRadius(map, userCoords, radius);
         }
     });
-    $( "#distance" ).val( $( "#radiusSlider" ).slider( "value" ) + "m" );
+    $( "#distance" ).val( "2km" );
 });
 
 
