@@ -40,7 +40,7 @@ ref.authWithPassword({
 
 function initMap() {
     var mapOptions = {
-         zoom: 14,
+         zoom: 13,
          mapTypeId: google.maps.MapTypeId.ROADMAP
      };
      var map = new google.maps.Map(document.getElementById('map'), mapOptions);
@@ -64,12 +64,35 @@ function getEvents(map) {
         var lon = event.lon;
         var coords = {lat: lat, lng: lon};
         var name = event.name;
+        var details = event.details;
         var eventMarker = new google.maps.Marker({
             position: coords,
             map: map,
             title: name
         });
         eventMarker.setMap(map);
+        
+        var contentString = '<h3><center>' + name + '</center></h3><hr>' + '<p><b>Details: </b>' + details + '</p>';
+        eventMarker.info = new google.maps.InfoWindow({
+            content: contentString,
+        });
+        eventMarker.info.opened = false;
+        eventMarker.addListener('click', function() {
+                if(eventMarker.info.opened) {
+                    eventMarker.info.close();
+                    eventMarker.info.opened = false;
+                } else {
+                    eventMarker.info.open(map, eventMarker);
+                    eventMarker.info.opened = true;
+                }
+            });
+            google.maps.event.addListener(eventMarker.info, 'closeclick', function(){
+                eventMarker.info.opened = false;
+            });
+            google.maps.event.addListener(map, 'click', function(event) {
+                eventMarker.info.close();
+                eventMarker.info.opened = false;
+            });
     });
 }
 
