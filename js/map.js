@@ -1,11 +1,27 @@
 $(function() {
-    $( "#slider" ).slider();
+    $( "#radiusSlider" ).slider({
+        range: "min",
+        value: 2000,
+        min: 500,
+        max: 100000,
+        slide: function( event, ui ) {
+            var radius = ui.value;
+            $( "#distance" ).val( radius + "m" );
+        },
+        change: function( event, ui ) {
+            var radius = ui.value;
+            userRadius.setRadius(radius);
+//            drawRadius(map, userCoords, radius);
+        }
+    });
+    $( "#distance" ).val( $( "#radiusSlider" ).slider( "value" ) + "m" );
 });
 
 
 
 var map;
 var userCoords;
+var userRadius;
 
 var ref = new Firebase("https://commonplaceapp.firebaseio.com");
 ref.authWithPassword({
@@ -32,7 +48,7 @@ function initMap() {
              userCoords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
              map.setCenter(userCoords);
              getEvents(map);
-             drawRadius(map, userCoords);
+             drawRadius(map, userCoords, 2000);
          });
      }
 }
@@ -55,8 +71,9 @@ function getEvents(map) {
     });
 }
 
-function drawRadius(map, userCoords) {
-    var userRadius = new google.maps.Circle({
+function drawRadius(map, userCoords, radius) {
+    console.log("here");
+    userRadius = new google.maps.Circle({
         strokeColor: '#FF0000',
         strokeOpacity: 0.6,
         strokeWeight: 2,
@@ -64,7 +81,7 @@ function drawRadius(map, userCoords) {
         fillOpacity: 0.15,
         map: map,
         center: userCoords,
-        radius: 2000
+        radius: radius
     });
     userRadius.setMap(map);
 }
