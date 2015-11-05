@@ -1,3 +1,4 @@
+//JQUERY INIT
 $(function() {
     $( "#radiusSlider" ).slider({
         range: "min",
@@ -19,8 +20,7 @@ $(function() {
     $( "#distance" ).val( "2km" );
 });
 
-
-
+//MAIN CODE
 var map;
 var userCoords;
 var userRadius;
@@ -40,8 +40,9 @@ ref.authWithPassword({
 
 function initMap() {
     var mapOptions = {
-         zoom: 13,
-         mapTypeId: google.maps.MapTypeId.ROADMAP
+        zoom: 13,
+        mapTypeId: google.maps.MapTypeId.TERRAIN,
+        disableDefaultUI: true
      };
      var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
@@ -114,7 +115,18 @@ function drawRadius(map, userCoords, radius) {
         radius: radius
     });
     userRadius.setMap(map);
+    //checkRadius();
 }
+
+//function checkRadius() {
+    //get user centre coords
+    //get marker coords
+    //get difference
+    //if within radius
+        //show
+    //else
+        //dont show
+//}
 
 function logout() {
     console.log("LOGGING OUT");
