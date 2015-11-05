@@ -82,7 +82,8 @@ function getEvents(map) {
             '<p><b>Date: </b>' + datestart + ' - ' + dateend + '</p>' + 
             '<p><b>Details: </b>' + details + '</p>' + 
             '<p><b>Contact: </b><a href="mailto:' + contactdetails + '">' + contactdetails + '</a></p>' +
-            '<p><b>Website: </b><a href="' + website + '">' + website + '</a></p>';
+            '<p><b>Website: </b><a href="' + website + '">' + website + '</a></p><hr>' +
+            '<span class="infoWindowButtons"><button class="buttonInterested" type="button">Interested</button><button class="buttonViewEvent" type="button">View Event Page</button></span>';
         eventMarker.info = new google.maps.InfoWindow({
             content: contentString,
         });
