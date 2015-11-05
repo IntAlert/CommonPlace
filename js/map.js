@@ -69,6 +69,7 @@ function getEvents(map) {
         var datestart = event.datestart;
         var dateend = event.dateend;
         var website = event.website;
+        var contactdetails = event.contactdetails;
         console.log("WEB: " + website);
         var eventMarker = new google.maps.Marker({
             position: coords,
@@ -78,7 +79,10 @@ function getEvents(map) {
         eventMarker.setMap(map);
         
         var contentString = '<h3><center>' + name + '</center></h3><hr>' + 
-            '<p><b>Details: </b>' + details + '</p><p><b>Date: </b>' + datestart + ' - ' + dateend + '</p><p><b>Website: </b>' + website + '</p>';
+            '<p><b>Date: </b>' + datestart + ' - ' + dateend + '</p>' + 
+            '<p><b>Details: </b>' + details + '</p>' + 
+            '<p><b>Contact: </b><a href="mailto:' + contactdetails + '">' + contactdetails + '</a></p>' +
+            '<p><b>Website: </b><a href="' + website + '">' + website + '</a></p>';
         eventMarker.info = new google.maps.InfoWindow({
             content: contentString,
         });
