@@ -41,10 +41,12 @@ ref.authWithPassword({
             console.log("KEY: " + key);
             if (key === uid) {
                 console.log("PROFILE EXISTS!");
+                localStorage.setItem("uid", uid);
+                return;
                 //set global vars for user
             } else {
                 console.log("PROFILE DOES NOT EXIST!");
-                ref.child(uid).set({
+                ref.child(uid).update({
                     provider: authData.provider,
                     name: getName(authData)
                 });
@@ -87,6 +89,8 @@ function getEvents(map) {
     var ref = new Firebase("https://commonplaceapp.firebaseio.com/events");
     ref.on('child_added', function(snapshot){
         var event = snapshot.val();
+        var eventkey = snapshot.key();
+        console.log("KEY" + eventkey);
         console.log(event);
         var lat = event.lat;
         var lon = event.lon;
@@ -109,7 +113,7 @@ function getEvents(map) {
             '<p><b>Details: </b>' + details + '</p>' + 
             '<p><b>Contact: </b><a href="mailto:' + contactdetails + '">' + contactdetails + '</a></p>' +
             '<p><b>Website: </b><a href="' + website + '">' + website + '</a></p><hr>' +
-            '<span class="infoWindowButtons"><button class="buttonInterested" type="button">Interested</button><button class="buttonViewEvent" type="button">View Event Page</button></span>';
+            '<span class="infoWindowButtons"><button class="buttonInterested" type="button" onclick="addInterested(' + '&#39;' + eventkey + '&#39;' + ')">Interested</button><button class="buttonViewEvent" type="button">View Event Page</button></span>';
         eventMarker.info = new google.maps.InfoWindow({
             content: contentString,
         });
@@ -158,11 +162,15 @@ function drawRadius(map, userCoords, radius) {
         //dont show
 //}
 
-//function addInterested(key) {
-    //connect to firebase
-    //connect to users table and use user key to enter user profile directory
-    //add key of event to mylist section (concatentated)
-//}
+function addInterested(eventkey) {
+    console.log(eventkey);
+    var user = localStorage.getItem("uid");
+    console.log("LOCALSTORAGE: " + user);
+    var fb = "https://commonplaceapp.firebaseio.com/users/" + user + "/events/";
+    console.log(fb);
+    var ref = new Firebase(fb);
+    ref.child(eventkey).set('true');
+}
 
 function logout() {
     console.log("LOGGING OUT");
