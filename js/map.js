@@ -25,18 +25,45 @@ var map;
 var userCoords;
 var userRadius;
 
-var ref = new Firebase("https://commonplaceapp.firebaseio.com");
+var ref = new Firebase("https://commonplaceapp.firebaseio.com/users");
 ref.authWithPassword({
     email    : "dlucas@international-alert.org",
     password : "1"
 }, function(error, authData) {
     if (error) {
         console.log("Login Failed!", error);
+        //login screen
     } else {
+        var uid = authData.uid;
+        console.log("UID : " + uid);
+        ref.on('child_added', function(snapshot){
+            var key = snapshot.key();
+            console.log("KEY: " + key);
+            if (key === uid) {
+                console.log("PROFILE EXISTS!");
+                //set global vars for user
+            } else {
+                console.log("PROFILE DOES NOT EXIST!");
+                ref.child(uid).set({
+                    provider: authData.provider,
+                    name: getName(authData)
+                });
+            }
         console.log("Authenticated successfully with payload:", authData);
-//        getEvents();
+        });
     }
 });
+
+function getName(authData) {
+    switch(authData.provider) {
+        case 'password':
+            return authData.password.email.replace(/@.*/, '');
+        case 'twitter':
+            return authData.twitter.displayName;
+        case 'facebook':
+            return authData.facebook.displayName;
+    }
+}
 
 function initMap() {
     var mapOptions = {
@@ -70,7 +97,6 @@ function getEvents(map) {
         var dateend = event.dateend;
         var website = event.website;
         var contactdetails = event.contactdetails;
-        console.log("WEB: " + website);
         var eventMarker = new google.maps.Marker({
             position: coords,
             map: map,
@@ -108,7 +134,6 @@ function getEvents(map) {
 }
 
 function drawRadius(map, userCoords, radius) {
-    console.log("here");
     userRadius = new google.maps.Circle({
         strokeColor: '#FF0000',
         strokeOpacity: 0.6,
@@ -131,6 +156,12 @@ function drawRadius(map, userCoords, radius) {
         //show
     //else
         //dont show
+//}
+
+//function addInterested(key) {
+    //connect to firebase
+    //connect to users table and use user key to enter user profile directory
+    //add key of event to mylist section (concatentated)
 //}
 
 function logout() {
