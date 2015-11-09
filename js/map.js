@@ -48,7 +48,7 @@ ref.authWithPassword({
                 console.log("PROFILE DOES NOT EXIST!");
                 ref.child(uid).update({
                     provider: authData.provider,
-                    name: getName(authData)
+                    username: getName(authData)
                 });
             }
         console.log("Authenticated successfully with payload:", authData);
