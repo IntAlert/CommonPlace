@@ -3,7 +3,7 @@ h1 {
 }
 
 .mainContent {
-    padding-top: 30px;
+    margin-top: 50px;
 }
 
 .profile {
@@ -11,23 +11,26 @@ h1 {
     border-style: solid;
     border-right-color: gray;
     float: left;
-    width: 20%;
+    width: 300px;
 }
 
 .profilepic {
+    border: 1px solid;
     display: block;
-    height: 80%;
+    height: 250px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 50px;
-    width: 80%;
+    margin-top: 25px;
+    width: 250px;
 }
 
 .profileinfo {
-    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
 }
 
 .events {
     background-color: darkgray;
-    margin-left: 20%;
+    margin-left: 300px;
 }
