@@ -9,10 +9,9 @@ function getProfile() {
     ref.on("value", function(snapshot) {
         var newEvent = snapshot.val();
         var profilepic = newEvent.profilepic;
-        if (profilepic === undefined || null) {
+        if (profilepic === undefined || null) { //IF INVALID THEN SET TO PLACEHOLDER
             profilepic = "images/profileplaceholder.png";
         }
-        console.log(profilepic); //IF UNDEFINED OR NULL THEN USE PLACEHOLDER
         var fullname = newEvent.firstname + " " + newEvent.lastname;
         var location = newEvent.town + ", " + newEvent.country;
         var bio = newEvent.bio;

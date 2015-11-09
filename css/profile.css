@@ -11,6 +11,7 @@ h1 {
     border-style: solid;
     border-right-color: gray;
     float: left;
+    padding-bottom: 40px;;
     width: 300px;
 }
 
@@ -22,6 +23,12 @@ h1 {
     margin-right: auto;
     margin-top: 25px;
     width: 250px;
+}
+
+.friendpic {
+    border: 1px solid;
+    height: 60px;
+    width: 60px;
 }
 
 .profileinfo {
