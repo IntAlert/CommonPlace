@@ -1,7 +1,32 @@
-body {
+h1 {
+    text-align: center;
+}
+
+.mainContent {
     padding-top: 30px;
 }
 
-h1 {
+.profile {
+    background-color: lightgray;
+    border-style: solid;
+    border-right-color: gray;
+    float: left;
+    width: 20%;
+}
+
+.profilepic {
+    display: block;
+    height: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+    width: 80%;
+}
+
+.profileinfo {
     text-align: center;
+}
+
+.events {
+    margin-left: 20%;
 }

@@ -10,7 +10,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script> 
-        <script src='https://cdn.firebase.com/js/client/2.3.0/firebase.js'></script>
+        <script src="https://cdn.firebase.com/js/client/2.3.0/firebase.js"></script>
+        <script src="js/profile.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -20,8 +21,8 @@
                 </div>
                 <div>
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="map.html">Map</a></li>
-                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="map.html">Map</a></li>
+                        <li class="active"><a href="profile.html">Profile</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
@@ -38,6 +39,17 @@
                 </div>
             </div>
         </nav>
-        <h1>Profile</h1>
+        <div class="mainContent">
+            <div class="profile">
+                <img class="profilepic" src="images/profileplaceholder.png" alt="Unable to load image">
+                <div class="profileinfo">
+                    <h3>Dan Lucas</h3>
+                    <h4>London, UK</h4>
+                </div>
+            </div>
+            <div class="events">
+                <h1>Events</h1>
+            </div>
+        </div>
     </body>
 </html>
