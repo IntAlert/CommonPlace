@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Common Place</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" href="css/profile.css">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script> 
+        <script src="https://cdn.firebase.com/js/client/2.3.0/firebase.js"></script>
+        <script src="js/profile.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Common Place</a>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li><a href="map.html">Map</a></li>
+                        <li class="active"><a href="profile.html">Profile</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-header">Settings</li>
+                                <li><a href="#"><div id="radiusSlider"></div></a></li>
+                                <li><a href="https://github.com/dlucas94/CommonPlace" target="_blank">Help</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#" onclick="logout()">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="mainContent">
+            <div class="profile">
+                <img class="profilepic" id="profilepic" src="images/profileplaceholder.png" alt="Unable to load image">
+                <div class="profileinfo">
+                    <h3 id="fullname">-</h3>
+                    <h4 id="location">-</h4>
+                    <p><b>About Me: </b><span id="bio"></span></p>
+                    <p><b>Birthday: </b><span id="birthday"></span></p>
+                    <p><b>Interests: </b><span id="interests"></span></p>
+                    <hr>
+                    <p><b>Friends: </b></p>
+                    <div class="friends">
+                        <img class="friendpic" src="images/imageplaceholder.png" alt="Unable to load image">
+                        <img class="friendpic" src="images/imageplaceholder.png" alt="Unable to load image">
+                        <img class="friendpic" src="images/imageplaceholder.png" alt="Unable to load image">
+                        <img class="friendpic" src="images/imageplaceholder.png" alt="Unable to load image">
+                        <img class="friendpic" src="images/imageplaceholder.png" alt="Unable to load image">
+                        <img class="friendpic" src="images/imageplaceholder.png" alt="Unable to load image">
+                    </div>
+                </div>
+            </div>
+            <div class="events">
+                <h1>Events</h1>
+                <div class="eventtable" id="eventtable"></div>
+            </div>
+        </div>
+    </body>
+</html>
