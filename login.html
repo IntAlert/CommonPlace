@@ -1,11 +1,15 @@
-<!DOCTYPE HTML>
+<!--DOCTYPE HTML -->
 <html>
     <head>
         <header>Commonplace</header>
-        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-        <script src="../js/jquery-2.1.4.min.js"></script>
-        <script src="https://connect.facebook.net/en_US/all.js"></script>
+        <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
         <script src="../js/facebookAuth.js"></script>
+        <script src="../js/oauth.js"></script>
+        <script src="../js/login.js"></script>
+<!--        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://connect.facebook.net/en_US/all.js"></script>
+        <script>var ref = new Firebase("https://commonplaceapp.firebaseio.com");</script>
     </head>
     
     <body>
@@ -17,23 +21,17 @@
             <input type="text" name="pass"><br>
         </form>
         <h3>Don't have an account?<br>Please sign-up!</h3>
-<!--
         <a href="signup.html">Create New Account</a><br>
-        <p>Or sign in with Facebook</p><br>
-        <div id="fb-root"></div>
-        <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
+        <p>Or sign in with Facebook</p>
+        
         <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
-        <div id="loginBtn"></div>
+        
         <div id="status"></div>
--->
-        <div id="userDetails" style="display: none;">
-<img id="userPic" src="">
-  
- 
-<div id="userInfo">
-</div>
-</div>
-<button id="loginBtn" onclick="logIn();" value="Login">Login</button>
-<button id="logoutBtn" onclick="logOut();" value="Logout" style="display: none;">Logout</button>
+        <div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
+        
+        <p>Or sign in with Twitter</p>
+        
+        <div><input type="image" src="../img/sign-in-with-twitter-gray.png" alt="button" width="158" height="28" onclick="twitter();" /></div>
+        
     </body>
 </html>
