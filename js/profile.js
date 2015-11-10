@@ -41,6 +41,7 @@ function getEvents(link) {
         //pull info down + display
         ref2.on("value", function(snapshot) {
             var eventObject = snapshot.val();
+            var eventimage = eventObject.image;
             var eventname = eventObject.name;
             var eventdetails = eventObject.details;
             console.log("SNAP: " + eventname);
