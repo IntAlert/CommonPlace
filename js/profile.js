@@ -45,8 +45,10 @@ function getEvents(link) {
             var eventname = eventObject.name;
             var eventdetails = eventObject.details;
             console.log("SNAP: " + eventname);
-            eventTable = eventTable + "<td><p class='eventname'><b>" + eventname + "</b></p><p class='eventdetails'>" + eventdetails + "</p></td></tr>";
+            eventTable = eventTable + "<td><img class='eventimage' src='" + eventimage + "' alt='unable to load image'></td><td><p class='eventname'><b>" + eventname + "</b></p><p class='eventdetails'>" + eventdetails + "</p></td></tr>";
             document.getElementById("eventtable").innerHTML = eventTable;
         });
     });
 }
+
+//reportText = reportText + "<td>" + "<img class='reportImage' src='" + imagestring + "' alt='Unable to load image'></td><td><p class='info'><b>Info: </b>" + info + "</p><br><p class='timestamp'><b>Timestamp: </b>" + timestamp + "</p><p class='coords'><b>Coordinates: </b>" + coords + "</p></td></tr>";
