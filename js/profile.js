@@ -42,8 +42,9 @@ function getEvents(link) {
         ref2.on("value", function(snapshot) {
             var eventObject = snapshot.val();
             var eventname = eventObject.name;
+            var eventdetails = eventObject.details;
             console.log("SNAP: " + eventname);
-            eventTable = eventTable + "<td><p><b>" + eventname + "</b></p></td></tr>";
+            eventTable = eventTable + "<td><p class='eventname'><b>" + eventname + "</b></p><p class='eventdetails'>" + eventdetails + "</p></td></tr>";
             document.getElementById("eventtable").innerHTML = eventTable;
         });
     });
