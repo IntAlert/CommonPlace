@@ -8,8 +8,8 @@ h1 {
 
 .profile {
     background-color: lightgray;
-    border-style: solid;
     border-right-color: gray;
+    border-style: solid;
     float: left;
     padding-bottom: 40px;;
     width: 300px;
@@ -25,10 +25,16 @@ h1 {
     width: 250px;
 }
 
+.friends {
+    height: 80px;
+    overflow:auto;
+    white-space:nowrap;
+}
+
 .friendpic {
     border: 1px solid;
-    height: 60px;
-    width: 60px;
+    height: 64px;
+    width: 64px;
 }
 
 .profileinfo {
