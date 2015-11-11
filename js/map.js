@@ -114,7 +114,8 @@ function getEvents(map) {
             '<p><b>Details: </b>' + details + '</p>' + 
             '<p><b>Contact: </b><a href="mailto:' + contactdetails + '">' + contactdetails + '</a></p>' +
             '<p><b>Website: </b><a href="' + website + '">' + website + '</a></p><hr>' +
-            '<span class="infoWindowButtons"><button class="buttonInterested" type="button" onclick="addInterested(' + '&#39;' + eventkey + '&#39;' + ')">Interested</button><button class="buttonViewEvent" type="button">View Event Page</button></span>';
+            '<span class="infoWindowButtons"><button class="buttonInterested" type="button" onclick="addInterested(' + '&#39;' + eventkey + '&#39;' + ')">Interested</button><button class="buttonViewEvent" type="button" onclick="viewEvent(' + '&#39;' + eventkey + '&#39;' + ')">View Event Page</button></span>';
+//        localStorage.setItem("eventid", eventkey);
         eventMarker.info = new google.maps.InfoWindow({
             content: contentString,
         });
@@ -171,6 +172,11 @@ function addInterested(eventkey) {
     console.log(fb);
     var ref = new Firebase(fb);
     ref.child(eventkey).set('true');
+}
+
+function viewEvent(eventkey) {
+    localStorage.setItem("eventid", eventkey);
+    window.location.href = "viewevent.html";
 }
 
 function logout() {
