@@ -92,8 +92,9 @@ function getEvents(map) {
         var eventkey = snapshot.key();
         console.log("KEY" + eventkey);
         console.log(event);
-        var lat = event.lat;
-        var lon = event.lon;
+        var lat = parseFloat(event.lat);
+        var lon = parseFloat(event.lon);
+        
         var coords = {lat: lat, lng: lon};
         var name = event.name;
         var details = event.details;
