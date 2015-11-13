@@ -88,13 +88,29 @@ function initMap() {
 function getEvents(map) {
     var ref = new Firebase("https://commonplaceapp.firebaseio.com/events");
     ref.on('child_added', function(snapshot){
+        var interested = "";
         var event = snapshot.val();
         var eventkey = snapshot.key();
         console.log("KEY" + eventkey);
         console.log(event);
+        var user = localStorage.getItem("uid");
+        var fb = "https://commonplaceapp.firebaseio.com/users/" + user + "/events/";
+        var ref2 = new Firebase(fb);
+        ref2.once("value", function(snapshot) {
+            var exists = snapshot.child(eventkey).exists();
+            console.log(exists);
+            if(exists === true) {
+                //if it exists already, remove and set button to add to interested
+                console.log("button should say 'Remove'");
+                interested = "Not Interested";
+            } else {
+                //it doesnt exist. add to fb and set button to not interested
+                console.log("button should say 'Add'");
+                interested = "Interested";
+            }
+        });
         var lat = parseFloat(event.lat);
         var lon = parseFloat(event.lon);
-        
         var coords = {lat: lat, lng: lon};
         var name = event.name;
         var details = event.details;
@@ -114,7 +130,7 @@ function getEvents(map) {
             '<p><b>Details: </b>' + details + '</p>' + 
             '<p><b>Contact: </b><a href="mailto:' + contactdetails + '">' + contactdetails + '</a></p>' +
             '<p><b>Website: </b><a href="' + website + '">' + website + '</a></p><hr>' +
-            '<span class="infoWindowButtons"><button class="buttonInterested" type="button" onclick="addInterested(' + '&#39;' + eventkey + '&#39;' + ')">Interested</button><button class="buttonViewEvent" type="button" onclick="viewEvent(' + '&#39;' + eventkey + '&#39;' + ')">View Event Page</button></span>';
+            '<span class="infoWindowButtons"><button class="buttonInterested" id="buttonInterested" type="button" onclick="addInterested(' + '&#39;' + eventkey + '&#39;' + ')">' + interested + '</button><button class="buttonViewEvent" type="button" onclick="viewEvent(' + '&#39;' + eventkey + '&#39;' + ')">View Event Page</button></span>';
 //        localStorage.setItem("eventid", eventkey);
         eventMarker.info = new google.maps.InfoWindow({
             content: contentString,
@@ -171,7 +187,19 @@ function addInterested(eventkey) {
     var fb = "https://commonplaceapp.firebaseio.com/users/" + user + "/events/";
     console.log(fb);
     var ref = new Firebase(fb);
-    ref.child(eventkey).set('true');
+    ref.once("value", function(snapshot) {
+        var exists = snapshot.child(eventkey).exists();
+        console.log(exists);
+        if(exists === true) {
+            ref.child(eventkey).remove();
+            document.getElementById("buttonInterested").innerHTML = "Interested";
+            //if it exists already, remove and set button to add to interested
+        } else {
+            //it doesnt exist. add to fb and set button to not interested
+            ref.child(eventkey).set('true');
+            document.getElementById("buttonInterested").innerHTML = "Not Interested";
+        }
+    });
 }
 
 function viewEvent(eventkey) {
