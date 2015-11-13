@@ -45,6 +45,17 @@ h1 {
 }
 
 .events {
-    background-color: darkgray;
+    background-color: whitesmoke;
     margin-left: 300px;
+}
+
+.eventimage {
+    border: 1px solid;
+    height: 112px;
+    width: 112px;
+}
+
+td {
+    padding-bottom: 8px;
+    padding-left: 8px;
 }

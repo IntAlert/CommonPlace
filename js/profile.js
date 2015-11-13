@@ -44,8 +44,10 @@ function getEvents(link) {
             var eventimage = eventObject.image;
             var eventname = eventObject.name;
             var eventdetails = eventObject.details;
+            var eventwebsite = eventObject.website;
+            var eventcontact = eventObject.contactdetails;
             console.log("SNAP: " + eventname);
-            eventTable = eventTable + "<td><p class='eventname'><b>" + eventname + "</b></p><p class='eventdetails'>" + eventdetails + "</p></td></tr>";
+            eventTable = eventTable + "<td><img class='eventimage' src='" + eventimage + "' alt='unable to load image'></td><td><p class='eventname'><b>" + eventname + "</b></p><p class='eventdetails'>" + eventdetails + "</p><p>Website: <a href='" + eventwebsite + "' class='eventwebsite'>" + eventwebsite + "</a></p><p>Contact: <a href='mailto:" + eventcontact + "' class='eventcontact'>" + eventcontact + "</a></p></td></tr>";
             document.getElementById("eventtable").innerHTML = eventTable;
         });
     });
