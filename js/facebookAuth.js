@@ -9,6 +9,7 @@
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       testAPI();
+      FBuser();
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
@@ -20,7 +21,6 @@
         'into Facebook.';
     }
   }
-
   // This function is called when someone finishes with the Login
   // Button.  See the onlogin handler attached to it in the sample
   // code below.
@@ -55,6 +55,7 @@
     statusChangeCallback(response);
   });
 
+
   };
 
   // Load the SDK asynchronously
@@ -77,6 +78,7 @@
     });
   }
 
+function FBuser() {
 var ref = new Firebase("https://commonplaceapp.firebaseio.com");
 ref.authWithOAuthPopup("facebook", function(error, authData) {
   if (error) {
@@ -84,4 +86,42 @@ ref.authWithOAuthPopup("facebook", function(error, authData) {
   } else {
     console.log("Authenticated successfully with payload:", authData);
   }
+},
+{
+    scope: "email, public_profile, user_about_me, user_friends"
+    
+}
+)
+
+FB.api('/me',
+      {fields: "id, bio, email, gender, first_name, last_name, picture, birthday , cover, likes, friends"},
+      function (response) {
+    console.log("API response:", response);
+    
+//    var usersRef = ref.child("users");
+    var newRef = new Firebase("https://commonplaceapp.firebaseio.com/users");
+    var refCheck = newRef.orderByChild("id").on("child_added", function(snapshot) {
+        
+        var udata = snapshot.val();
+        var ukey = snapshot.key();
+        var dfjkvd = newRef.child(ukey);
+        console.log(snapshot.key());
+        console.log(response.id);
+        console.log(udata.id);
+        console.log(refCheck);
+        
+    
+    
+    if (response.id == udata.id) {
+        dfjkvd.update(response);
+        console.log("id exists");
+        
+    }
+    else {
+        usersRef.push(response);
+    }
+    
+  })  
 });
+
+}

@@ -38,7 +38,7 @@ OAuth.popup(provider)
 //or an equivalent (e.g. "FirstName" or "first-name")
 var provider = 'twitter';
 
-OAuth.popup(provider)
+OAuth.popup('twitter')
 .done(function(result) {
     result.me()
     .done(function (response) {
@@ -54,4 +54,19 @@ OAuth.popup(provider)
     //handle error with err
     console.log("Couldn't get lastname")
 });
+
+OAuth.popup('twitter').then(function(oauthResult) {
+  return oauthResult.get('https://twitter.com/');
+}).then(function(data) {
+  // data is the result of the request to /me
+}).fail(function(err) {
+  // handle an error
+});
+    
+oauthResult.get('https://twitter.com/').done(function(data) {
+  //todo with data
+}).fail(function(err) {
+  //todo with err
+});
+    
 }
