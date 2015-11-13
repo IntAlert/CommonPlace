@@ -204,6 +204,7 @@ function addInterested(eventkey) {
 
 function viewEvent(eventkey) {
     localStorage.setItem("eventid", eventkey);
+    localStorage.setItem("prevloc", "map.html"); //save map.html to previous location (also add GPS coords to center map)
     window.location.href = "viewevent.html";
 }
 
