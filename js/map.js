@@ -131,7 +131,6 @@ function getEvents(map) {
             '<p><b>Contact: </b><a href="mailto:' + contactdetails + '">' + contactdetails + '</a></p>' +
             '<p><b>Website: </b><a href="' + website + '">' + website + '</a></p><hr>' +
             '<span class="infoWindowButtons"><button class="buttonInterested" id="buttonInterested" type="button" onclick="addInterested(' + '&#39;' + eventkey + '&#39;' + ')">' + interested + '</button><button class="buttonViewEvent" type="button" onclick="viewEvent(' + '&#39;' + eventkey + '&#39;' + ')">View Event Page</button></span>';
-//        localStorage.setItem("eventid", eventkey);
         eventMarker.info = new google.maps.InfoWindow({
             content: contentString,
         });
@@ -203,7 +202,7 @@ function addInterested(eventkey) {
 }
 
 function viewEvent(eventkey) {
-    localStorage.setItem("eventid", eventkey);
+    localStorage.setItem("eventkey", eventkey);
     localStorage.setItem("prevloc", "map.html"); //save map.html to previous location (also add GPS coords to center map)
     window.location.href = "viewevent.html";
 }
