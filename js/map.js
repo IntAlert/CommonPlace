@@ -140,6 +140,9 @@ function getEvents(map) {
                     eventMarker.info.close();
                     eventMarker.info.opened = false;
                 } else {
+                    //centre map on coords
+                    map.setCenter(coords);
+                    console.log("PANNED");
                     eventMarker.info.open(map, eventMarker);
                     eventMarker.info.opened = true;
                 }
