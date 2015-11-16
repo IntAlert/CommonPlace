@@ -5,7 +5,7 @@
         <title>Common Place</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-        <link rel="stylesheet" href="css/profile.css">
+        <link rel="stylesheet" href="css/viewevent.css">
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -42,9 +42,14 @@
         </nav>
         <div class="mainContent">
             <h1 id="eventname"></h1>
-            <p id="eventdetails"></p>
-            <p id="eventcoords"></p>
+            <div class="eventdetails">
+                <img class="eventimage" id="eventimage" src="images/imageplaceholder.png" alt="Unable to load image">
+                <p id="eventdetails"></p>
+                <p id="eventcoords"></p>
+                <button class="buttonInterested" id="buttonInterested" type="button" onclick="addInterested()">.</button>
+            </div>
+            <hr>
+            <button class="goBack" id="goBack" type="button" onclick="previousLocation()">Go Back</button>
         </div>
-        <button class="goBack" id="goBack" type="button" onclick="previousLocation()">Go Back</button>
     </body>
 </html>

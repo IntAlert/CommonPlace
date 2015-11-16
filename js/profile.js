@@ -32,11 +32,11 @@ function getEvents(link) {
     console.log("events link : " + eventlink);
     var ref = new Firebase(eventlink);
     ref.on("child_added", function(snapshot) {
-        var newEvent = snapshot.key();
-        console.log("Event Key: " + newEvent);
+        var eventkey = snapshot.key();
+        console.log("Event Key: " + eventkey);
         //take each event key
         //connect to firebase with new ref - events table
-        var ref2 = new Firebase("https://commonplaceapp.firebaseio.com/events/" + newEvent);
+        var ref2 = new Firebase("https://commonplaceapp.firebaseio.com/events/" + eventkey);
         //match key up with event in firebase
         //pull info down + display
         ref2.on("value", function(snapshot) {
@@ -47,8 +47,14 @@ function getEvents(link) {
             var eventwebsite = eventObject.website;
             var eventcontact = eventObject.contactdetails;
             console.log("SNAP: " + eventname);
-            eventTable = eventTable + "<td><img class='eventimage' src='" + eventimage + "' alt='unable to load image'></td><td><p class='eventname'><b>" + eventname + "</b></p><p class='eventdetails'>" + eventdetails + "</p><p>Website: <a href='" + eventwebsite + "' class='eventwebsite'>" + eventwebsite + "</a></p><p>Contact: <a href='mailto:" + eventcontact + "' class='eventcontact'>" + eventcontact + "</a></p></td></tr>";
+            eventTable = eventTable + "<td><img class='eventimage' src='" + eventimage + "' alt='unable to load image'></td><td><p class='eventname'><b>" + eventname + "</b></p><p class='eventdetails'>" + eventdetails + "</p><p>Website: <a href='" + eventwebsite + "' class='eventwebsite'>" + eventwebsite + "</a></p><p>Contact: <a href='mailto:" + eventcontact + "' class='eventcontact'>" + eventcontact + "</a></p><button class='buttonViewEvent' type='button' onclick='viewEvent(" + "&#39;" + eventkey + "&#39;" + ")'>View Event Page</button>   </td></tr>";
             document.getElementById("eventtable").innerHTML = eventTable;
         });
     });
+}
+
+function viewEvent(eventkey) {
+    localStorage.setItem("eventkey", eventkey);
+    localStorage.setItem("prevloc", "profile.html"); //save map.html to previous location (also add GPS coords to center map)
+    window.location.href = "viewevent.html";
 }
