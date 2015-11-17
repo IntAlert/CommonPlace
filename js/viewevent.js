@@ -10,6 +10,8 @@ function getData() {
         var newEvent = snapshot.val();
         var eventname = newEvent.name;
         var eventimage = newEvent.image;
+        var eventdatestart = newEvent.datestart;
+        var eventdateend = newEvent.dateend;
         var eventdetails = newEvent.details;
         var eventlat = newEvent.lat;
         var eventlon = newEvent.lon;
@@ -17,6 +19,7 @@ function getData() {
         interestedButton(eventkey);
         document.getElementById("eventname").innerHTML = eventname;
         document.getElementById("eventimage").src = eventimage;
+        document.getElementById("eventdates").innerHTML = "<b>When: </b>" + eventdatestart + " - " + eventdateend;
         document.getElementById("eventdetails").innerHTML = "<b>Details: </b>" + eventdetails;
         document.getElementById("eventcoords").innerHTML = "<b>Coordinates: </b>" + eventcoords;
     }, function(errorObject) {
