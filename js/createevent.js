@@ -1,5 +1,6 @@
 function eventCreate(image) {
     //GATHER FORM DATA INTO VARS
+    var user = localStorage.getItem("uid");
     var eventimage = image;
     var eventname = document.getElementById("eventname").value;
     var eventdetails = document.getElementById("eventdetails").value;
@@ -15,7 +16,8 @@ function eventCreate(image) {
         image: eventimage,
         lat: eventlat,
         lon: eventlon,
-        website: eventwebsite
+        website: eventwebsite,
+        uid: user
     });
 }
 
