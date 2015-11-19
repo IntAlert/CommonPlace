@@ -75,7 +75,7 @@ function removeEvent(eventkey) {
             var link = "https://commonplaceapp.firebaseio.com/users/" + user;
             getEvents(link);
         } else {
-            console.log("display empty list");
+            console.log("EMPTY LIST!!")
         }
     });
 }
