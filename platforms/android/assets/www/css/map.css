@@ -1,0 +1,18 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    height: 90%;
+    margin-top: 50px;
+}
+
+.buttonInterested {
+    float: left;
+}
+
+.buttonViewEvent {
+    float: right;
+}
