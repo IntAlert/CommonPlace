@@ -59,3 +59,10 @@ td {
     padding-bottom: 8px;
     padding-left: 8px;
 }
+
+.buttonRemoveEvent {
+    background-color: #ce0018;
+    color: white;
+    float: right;
+    margin-right: 8px;
+}

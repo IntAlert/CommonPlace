@@ -47,7 +47,7 @@ function getEvents(link) {
             var eventwebsite = eventObject.website;
             var eventcontact = eventObject.contactdetails;
             console.log("SNAP: " + eventname);
-            eventTable = eventTable + "<td><img class='eventimage' src='" + eventimage + "' alt='unable to load image'></td><td><p class='eventname'><b>" + eventname + "</b></p><p class='eventdetails'>" + eventdetails + "</p><p>Website: <a href='" + eventwebsite + "' class='eventwebsite'>" + eventwebsite + "</a></p><p>Contact: <a href='mailto:" + eventcontact + "' class='eventcontact'>" + eventcontact + "</a></p><button class='buttonViewEvent' type='button' onclick='viewEvent(" + "&#39;" + eventkey + "&#39;" + ")'>View Event Page</button>   </td></tr>";
+            eventTable = eventTable + "<td><img class='eventimage' src='" + eventimage + "' alt='unable to load image'></td><td><p class='eventname'><b>" + eventname + "</b></p><p class='eventdetails'>" + eventdetails + "</p><p>Website: <a href='" + eventwebsite + "' class='eventwebsite'>" + eventwebsite + "</a></p><p>Contact: <a href='mailto:" + eventcontact + "' class='eventcontact'>" + eventcontact + "</a></p><button class='buttonViewEvent' type='button' onclick='viewEvent(" + "&#39;" + eventkey + "&#39;" + ")'>View Event Page</button><button class='buttonRemoveEvent' type='button' onclick='removeEvent(" + "&#39;" + eventkey + "&#39;" + ")'>Remove Event</button></td></tr>";
             document.getElementById("eventtable").innerHTML = eventTable;
         });
     });
@@ -57,4 +57,18 @@ function viewEvent(eventkey) {
     localStorage.setItem("eventkey", eventkey);
     localStorage.setItem("prevloc", "profile.html"); //save map.html to previous location (also add GPS coords to center map)
     window.location.href = "viewevent.html";
+}
+
+function removeEvent(eventkey) {
+//    Button that removes event from list and then forces a repull of info to instantly update without refreshing page
+    var eventkey = eventkey;
+    console.log("KEY: " + eventkey + " + UID: " + user);
+    var fb = "https://commonplaceapp.firebaseio.com/users/" + user + "/events/";
+    console.log("FB: " + fb);
+    var ref = new Firebase(fb);
+    ref.once("value", function(snapshot) {
+        ref.child(eventkey).remove();
+        var link = "https://commonplaceapp.firebaseio.com/users/" + user;
+        getEvents(link);
+    });
 }
