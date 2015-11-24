@@ -31,12 +31,21 @@ function eventCreate(image) {
         lon: eventlon,
         website: eventwebsite,
         uid: user
+    }, function(error) {
+        if(error) {
+            alert("ERROR: " + error);
+        } else {
+            alert("Event Created");
+            location.reload();
+        }
     });
 }
 
 function imageUpload() {
-    var file    = document.querySelector("input[type=file]").files[0];
-    var reader  = new FileReader();
+    document.getElementById("formsubmit").disabled = true;
+    document.getElementById("formsubmit").value = "Please Wait";
+    var file = document.querySelector("input[type=file]").files[0];
+    var reader = new FileReader();
 
     reader.onloadend = function () {
         console.log(reader.result);
