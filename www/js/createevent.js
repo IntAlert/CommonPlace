@@ -14,6 +14,7 @@ function eventCreate(image) {
         name: eventname,
         details: eventdetails,
         image: eventimage,
+        interested: "0",
         lat: eventlat,
         lon: eventlon,
         website: eventwebsite,

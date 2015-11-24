@@ -194,12 +194,43 @@ function addInterested(eventkey) {
         console.log(exists);
         if(exists === true) {
             ref.child(eventkey).remove();
+            interestedTotal(eventkey, "remove");
             document.getElementById("buttonInterested").innerHTML = "Interested";
             //if it exists already, remove and set button to add to interested
         } else {
             //it doesnt exist. add to fb and set button to not interested
             ref.child(eventkey).set('true');
+            interestedTotal(eventkey, "add");
             document.getElementById("buttonInterested").innerHTML = "Not Interested";
+        }
+    });
+}
+
+function interestedTotal(eventkey, method) {
+    var method = method;
+    var key = eventkey;
+    console.log(method);
+    var fb = "https://commonplaceapp.firebaseio.com/events/" + key;
+    console.log(fb);
+    var ref = new Firebase(fb);
+    ref.once("value", function(snapshot) {
+        var newEvent = snapshot.val();
+        var interested = newEvent.interested;
+        console.log("interested old: " + interested);
+        if(method === "add") {
+            //total +1
+            interested = interested + 1;
+            console.log("interested new: " + interested);
+            ref.update({
+                interested: interested
+            });
+        } else {
+            //total -1
+            interested = interested - 1;
+            console.log("interested new: " + interested);
+            ref.update({
+                interested: interested
+            });
         }
     });
 }
