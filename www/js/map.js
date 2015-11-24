@@ -56,6 +56,19 @@ ref.authWithPassword({
     }
 });
 
+function onDeviceReady() {
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+}
+
+function onSuccess(position) {
+    console.log("Geo Lat: " + position.coords.latitude);
+    console.log("Geo Lon: " + position.coords.longitude);
+}
+
+function onError(error) {
+    console.log("Ooops");
+}
+
 function getName(authData) {
     switch(authData.provider) {
         case 'password':

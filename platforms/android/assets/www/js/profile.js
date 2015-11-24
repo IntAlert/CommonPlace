@@ -67,8 +67,17 @@ function removeEvent(eventkey) {
     console.log("FB: " + fb);
     var ref = new Firebase(fb);
     ref.once("value", function(snapshot) {
-        ref.child(eventkey).remove();
-        var link = "https://commonplaceapp.firebaseio.com/users/" + user;
-        getEvents(link);
+        var eventCount = snapshot.numChildren(); //Get number of events in list
+        console.log(eventCount);
+        if(eventCount > 1) {
+            console.log("remove event");
+            ref.child(eventkey).remove();
+            var link = "https://commonplaceapp.firebaseio.com/users/" + user;
+            getEvents(link);
+        } else {
+            ref.child(eventkey).remove();
+            console.log("EMPTY LIST!!")
+            document.getElementById("eventtable").innerHTML = "<p>You do not have any events in your list</p>";
+        }
     });
 }
