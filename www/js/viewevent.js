@@ -16,12 +16,14 @@ function getData() {
         var eventlat = newEvent.lat;
         var eventlon = newEvent.lon;
         var eventcoords = eventlat + "," + eventlon;
+        var eventinterested = newEvent.interested;
         interestedButton(eventkey);
         document.getElementById("eventname").innerHTML = eventname;
         document.getElementById("eventimage").src = eventimage;
         document.getElementById("eventdates").innerHTML = "<b>When: </b>" + eventdatestart + " - " + eventdateend;
         document.getElementById("eventdetails").innerHTML = "<b>Details: </b>" + eventdetails;
         document.getElementById("eventcoords").innerHTML = "<b>Coordinates: </b>" + eventcoords;
+        document.getElementById("eventinterested").innerHTML = "<b>Interested: </b>" + eventinterested;
     }, function(errorObject) {
         console.log("Read fail: " + errorObject.code);
     });
