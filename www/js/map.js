@@ -115,11 +115,11 @@ function getEvents(map) {
             if(exists === true) {
                 //if it exists already, remove and set button to add to interested
                 console.log("button should say 'Remove'");
-                interested = "Not Interested";
+                document.getElementById("buttonInterested").value = "Not Interested";
             } else {
                 //it doesnt exist. add to fb and set button to not interested
                 console.log("button should say 'Add'");
-                interested = "Interested";
+                document.getElementById("buttonInterested").value = "Interested";
             }
         });
         var lat = parseFloat(event.lat);
@@ -143,7 +143,7 @@ function getEvents(map) {
             '<p><b>Details: </b>' + details + '</p>' + 
             '<p><b>Contact: </b><a href="mailto:' + contactdetails + '">' + contactdetails + '</a></p>' +
             '<p><b>Website: </b><a href="' + website + '">' + website + '</a></p><hr>' +
-            '<span class="infoWindowButtons"><button class="buttonInterested" id="buttonInterested" type="button" onclick="addInterested(' + '&#39;' + eventkey + '&#39;' + ')">' + interested + '</button><button class="buttonViewEvent" type="button" onclick="viewEvent(' + '&#39;' + eventkey + '&#39;' + ')">View Event Page</button></span>';
+            '<span class="infoWindowButtons"><button class="buttonInterested" id="buttonInterested" type="button" onclick="addInterested(' + '&#39;' + eventkey + '&#39;' + ')">Interested</button><button class="buttonViewEvent" type="button" onclick="viewEvent(' + '&#39;' + eventkey + '&#39;' + ')">View Event Page</button></span>';
         eventMarker.info = new google.maps.InfoWindow({
             content: contentString,
         });
@@ -158,6 +158,23 @@ function getEvents(map) {
                     console.log("PANNED");
                     eventMarker.info.open(map, eventMarker);
                     eventMarker.info.opened = true;
+                    //Set interested button
+                    var user = localStorage.getItem("uid");
+                    var fb = "https://commonplaceapp.firebaseio.com/users/" + user + "/events/";
+                    var ref = new Firebase(fb);
+                    ref.once("value", function(snapshot) {
+                        var exists = snapshot.child(eventkey).exists();
+                        console.log(exists);
+                        if(exists === true) {
+                            //if it exists already, remove and set button to add to interested
+                            console.log("button should say 'Remove'");
+                            document.getElementById("buttonInterested").innerHTML = "Not Interested";
+                        } else {
+                            //it doesnt exist. add to fb and set button to not interested
+                            console.log("button should say 'Add'");
+                            document.getElementById("buttonInterested").innerHTML = "Interested";
+                        }
+                    });
                 }
             });
             google.maps.event.addListener(eventMarker.info, 'closeclick', function(){
