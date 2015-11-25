@@ -8,11 +8,13 @@
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
         <link rel="stylesheet" href="css/viewevent.css">
         
+        <script src='cordova.js'></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script> 
         <script src="https://cdn.firebase.com/js/client/2.3.0/firebase.js"></script>
         <script src="js/viewevent.js"></script>
+        <script src="js/calendar.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -56,6 +58,7 @@
                 <p id="eventcoords"></p>
                 <p id="eventinterested"></p>
                 <button class="buttonInterested" id="buttonInterested" type="button" onclick="addInterested()"></button>
+                <button class="buttonCalendar" id="buttonCalendar" type="button" onclick="addCalendar()">Add to Calendar</button>
             </div>
             <hr>
             <button class="goBack" id="goBack" type="button" onclick="previousLocation()">Go Back</button>
