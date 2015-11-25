@@ -1,2 +1,0 @@
-# CommonPlace
-Common Place App
