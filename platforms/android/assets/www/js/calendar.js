@@ -2,22 +2,21 @@ function addEventCalendar(eventdatestart, eventdateend, eventname, eventcoords, 
     var title = eventname;
     var eventLocation = eventcoords;
     var notes = eventdetails;
-    var startDate = eventdatestart;
-    var endDate = eventdateend;
-    console.log(startDate + " + " + endDate);
+    
+    var startDate = eventdatestart; //take pre-formatted date
     startDate = startDate.split("/"); //split into array by removing /
-    var startDateObject = new Date(startDate[2], startDate[1] - 1, startDate[0]);
-    console.log(startDateObject);
-    endDate = endDate.split("/"); //split into array by removing /
+    var startDateObject = new Date(startDate[2], startDate[1] - 1, startDate[0]); //rebuild as date object
+    var endDate = eventdateend;
+    endDate = endDate.split("/");
     var endDateObject = new Date(endDate[2], endDate[1] - 1, endDate[0]);
-    console.log(endDateObject);
+    
     var success = function(message) { alert("Success: " + JSON.stringify(message)); };
     var error = function(message) { alert("Error: " + message); };
 
     // create an event silently (on Android < 4 an interactive dialog is shown)
     window.plugins.calendar.createEvent(title,eventLocation,notes,startDateObject,endDateObject,success,error);
 }
-//
+
 //function deleteEvent(startDate, endDate, destination) {
 //    var title = "International Alert Trip: " + destination;
 ////    var success = function(message) { alert("Success: " + JSON.stringify(message)); };
