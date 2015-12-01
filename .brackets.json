@@ -1,0 +1,7 @@
+{
+    "jscodehints.detectedExclusions": [
+        "C:/wamp/www/test/CommonPlace/js/profile.js",
+        "C:/wamp/www/test/CommonPlace/js/twitterAuth.js",
+        "C:/wamp/www/test/CommonPlace/editProfile.js"
+    ]
+}
