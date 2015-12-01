@@ -57,3 +57,7 @@ function imageUpload() {
         reader.readAsDataURL(file);
     }
 }
+
+//function validateForm() {
+//    
+//}
