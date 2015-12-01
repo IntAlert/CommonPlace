@@ -76,3 +76,23 @@ function interestedButton(eventkey) {
         }
     });
 }
+
+function addCalendar() {
+    //Pull fromlocal storage
+    var ref = new Firebase("https://commonplaceapp.firebaseio.com/events");
+    var eventkey = localStorage.getItem("eventkey");
+    console.log(eventkey);
+    ref.child(eventkey).on("value", function(snapshot) { //PULL ALL DATA FROM REPORTS TABLE
+        var newEvent = snapshot.val();
+        var eventname = newEvent.name;
+        var eventdatestart = newEvent.datestart;
+        var eventdateend = newEvent.dateend;
+        var eventdetails = newEvent.details;
+        var eventlat = newEvent.lat;
+        var eventlon = newEvent.lon;
+        var eventcoords = eventlat + "," + eventlon;
+        addEventCalendar(eventdatestart, eventdateend, eventname, eventcoords, eventdetails);
+    }, function(errorObject) {
+        console.log("Read fail: " + errorObject.code);
+    });
+}

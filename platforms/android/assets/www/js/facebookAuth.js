@@ -108,7 +108,6 @@ FB.api('/me',
         console.log(snapshot.key());
         console.log(response.id);
         console.log(udata.id);
-        console.log(refCheck);
         
     
     

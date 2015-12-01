@@ -33,7 +33,7 @@ function eventCreate(image) {
         uid: user
     }, function(error) {
         if(error) {
-            alert("ERROR: " + error);
+            alert("Error: " + error);
         } else {
             alert("Event Created");
             location.reload();
@@ -57,3 +57,7 @@ function imageUpload() {
         reader.readAsDataURL(file);
     }
 }
+
+//function validateForm() {
+//    
+//}

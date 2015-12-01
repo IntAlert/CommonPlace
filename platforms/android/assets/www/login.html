@@ -3,19 +3,16 @@
     <head>
         <meta charset="utf-8">
         <header>Commonplace</header>
+<!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>-->
         <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
-<<<<<<< HEAD
-        <script src="../js/oauth.js"></script>
-        <script src="../js/facebookAuth.js"></script>
-        
-        <script src="../js/login.js"></script>
-=======
-        <script src="js/facebookAuth.js"></script>
         <script src="js/oauth.js"></script>
-        <script src="js/login.js"></script>
->>>>>>> b6a88127bfc43efa97b6c3fbf69fb39617c02680
+        <script src="../js/login.js"></script>
+        <script src="js/facebookAuth.js"></script>
+        
+        <script src="js/twitterAuth.js"></script>
+
 <!--        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        
         <script src="https://connect.facebook.net/en_US/all.js"></script>
         <script>var ref = new Firebase("https://commonplaceapp.firebaseio.com");</script>
     </head>
@@ -24,9 +21,9 @@
         <h3>Please Login</h3>
         <form>
             <p>Username</p>
-            <input type="text" name="user">
+            <input type="text" name="user" id="user">
             <p>Password</p>
-            <input type="text" name="pass"><br>
+            <input type="text" name="password" id="pass"><br>
         </form>
         <h3>Don't have an account?<br>Please sign-up!</h3>
         <a href="signup.html">Create New Account</a><br>
@@ -39,7 +36,7 @@
         
         <p>Or sign in with Twitter</p>
         
-        <div><input type="image" src="../img/sign-in-with-twitter-gray.png" alt="button" width="158" height="28" onclick="twitter();" /></div>
+        <div><input type="image" src="../img/sign-in-with-twitter-gray.png" alt="button" width="158" height="28" onclick="authMe();" /></div>
         
     </body>
 </html>

@@ -51,31 +51,31 @@
             <h1>Create Event</h1>
             <form name="addEvent" class="addEvent">
                 <p>Event Name
-                    <input type="text" name="eventname" id="eventname">
+                    <input type="text" name="eventname" id="eventname" required>
                 </p>
                 <p>Details
-                    <input type="text" name="eventdetails" id="eventdetails">
+                    <input type="text" name="eventdetails" id="eventdetails" required>
                 </p>
                 <p>Start Date
-                    <input type="date" name="eventdatestart" id="eventdatestart">
+                    <input type="date" name="eventdatestart" id="eventdatestart" required>
                 </p>
                 <p>End Date
-                    <input type="date" name="eventdateend" id="eventdateend">
+                    <input type="date" name="eventdateend" id="eventdateend" required>
                 </p>
                 <p>Website
-                    <input type="text" name="eventwebsite" id="eventwebsite">
+                    <input type="text" name="eventwebsite" id="eventwebsite" required>
                 </p>
                 <p>Contact email
-                    <input type="email" name="eventcontact" id="eventcontact">
+                    <input type="email" name="eventcontact" id="eventcontact" required>
                 </p>
                 <p>Image
-                    <input type="file" name="eventimage" id="eventimage">
+                    <input type="file" name="eventimage" id="eventimage" required>
                 </p>
                 <p>Lat
-                    <input type="number" name="eventlat" id="eventlat">
+                    <input type="number" name="eventlat" id="eventlat" required>
                 </p>
                 <p>Lon
-                    <input type="number" name="eventlon" id="eventlon">
+                    <input type="number" name="eventlon" id="eventlon" required>
                 </p>
                 <input type="button" id="formsubmit" value="Create" onclick="imageUpload()">
             </form>
