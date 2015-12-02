@@ -51,11 +51,10 @@ function getProfilesInit() {
         var interests = profile.interests;
         var image = profile.profilepic;
         
-        var myElement = "#p" + count + "name";
-        console.log("myele " + myElement);
-//        profileArray[count]= firstname;
-        //set pane content
-        $(myElement).html(firstname);
+        var pImg = "#p" + count + "img";
+        $(pImg).html("<img src='" + image + "' height='450px'>");
+        var pName = "#p" + count + "info";
+        $(pName).html(firstname + " - " + location);
         console.log("set pane");
         count = count + 1;
         console.log("count: " + count);
