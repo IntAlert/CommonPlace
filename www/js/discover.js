@@ -6,11 +6,13 @@ $("#tinderslide").jTinder({
     onDislike: function (item) {
 	    // set the status text
         console.log('Dislike image ' + (item.index()+1));
+        //load extra profile
     },
 	// like callback
     onLike: function (item) {
 	    // set the status text
         console.log('Like image ' + (item.index()+1));
+        //load extra profile
     },
 	animationRevertSpeed: 200,
 	animationSpeed: 400,
@@ -29,21 +31,34 @@ $('.actions .like, .actions .dislike').click(function(e){
 
 
 ////////// MAIN CODE //////////
-getProfiles();
+var count = 1;
+getProfilesInit();
 
-function getProfiles() {
+function getProfilesInit() {
     //CONNECT TO FIREBASE PROFILES BRANCH
+    console.log("here");
     var ref = new Firebase("https://commonplaceapp.firebaseio.com/users");
-    ref.on('child_added', function(snapshot){
+    ref.orderByKey().limitToFirst(5).on('child_added', function(snapshot){
+        console.log("----------");
         var profile = snapshot.val();
-        var profilekey = snapshot.key();
+        profilekey = snapshot.key();
         console.log("PROFILE " + profilekey);
         var firstname = profile.firstname;
+        console.log(firstname);
 //        var lastname = profile.lastname; //LAST NAME PROBABLY ISNT NEEDED ON THIS SCREEN?
 //        var fullname = firstname + " " + lastname;
         var location = profile.town + ", " + profile.country;
         var interests = profile.interests;
         var image = profile.profilepic;
+        
+        var myElement = "#p" + count + "name";
+        console.log("myele " + myElement);
+//        profileArray[count]= firstname;
+        //set pane content
+        $(myElement).html(firstname);
+        console.log("set pane");
+        count = count + 1;
+        console.log("count: " + count);
     });
     //PULL DATA IN GROUPS OF 5
     //PUSH INTO ARRAY
