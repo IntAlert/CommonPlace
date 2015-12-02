@@ -1,6 +1,7 @@
 /**
  * jTinder initialization
  */
+console.log("hello");
 $("#tinderslide").jTinder({
 	// dislike callback
     onDislike: function (item) {
@@ -26,13 +27,3 @@ $('.actions .like, .actions .dislike').click(function(e){
 	e.preventDefault();
 	$("#tinderslide").jTinder($(this).attr('class'));
 });
-
-
-////////// MAIN CODE //////////
-function getProfiles() {
-    //CONNECT TO FIREBASE PROFILES BRANCH
-    //PULL DATA IN GROUPS OF 5
-    //PUSH INTO ARRAY
-    //PUSH INTO PANES
-    //REPEAT USING WHERE FIREBASE LEFT OF (BEGIN AT?)
-}
