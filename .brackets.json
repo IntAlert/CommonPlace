@@ -1,11 +1,5 @@
 {
     "jscodehints.detectedExclusions": [
-<<<<<<< HEAD
-        "C:/wamp/www/test/CommonPlace/js/profile.js",
-        "C:/wamp/www/test/CommonPlace/js/twitterAuth.js",
-        "C:/wamp/www/test/CommonPlace/editProfile.js"
-=======
         "/Users/Dan/Documents/CommonPlace/CommonPlace/www/js/viewevent.js"
->>>>>>> f7e45ed521ac9d17bea0b6de2bed888252b3a452
     ]
 }

@@ -29,8 +29,22 @@ $('.actions .like, .actions .dislike').click(function(e){
 
 
 ////////// MAIN CODE //////////
+getProfiles();
+
 function getProfiles() {
     //CONNECT TO FIREBASE PROFILES BRANCH
+    var ref = new Firebase("https://commonplaceapp.firebaseio.com/users");
+    ref.on('child_added', function(snapshot){
+        var profile = snapshot.val();
+        var profilekey = snapshot.key();
+        console.log("PROFILE " + profilekey);
+        var firstname = profile.firstname;
+//        var lastname = profile.lastname; //LAST NAME PROBABLY ISNT NEEDED ON THIS SCREEN?
+//        var fullname = firstname + " " + lastname;
+        var location = profile.town + ", " + profile.country;
+        var interests = profile.interests;
+        var image = profile.profilepic;
+    })
     //PULL DATA IN GROUPS OF 5
     //PUSH INTO ARRAY
     //PUSH INTO PANES
