@@ -58,6 +58,52 @@ function imageUpload() {
     }
 }
 
-//function validateForm() {
-//    
-//}
+function validateForm() {
+    if(document.addEvent.eventname.value === "") {
+        alert("Please enter an name for this event");
+        document.addEvent.eventname.focus();
+        return false;
+    }
+    if(document.addEvent.eventdetails.value === "") {
+        alert("Please enter some details for this event");
+        document.addEvent.eventdetails.focus();
+        return false;
+    }
+    if(document.addEvent.eventdatestart.value === "") {
+        alert("Please enter a start date for this event");
+        document.addEvent.eventdatestart.focus();
+        return false;
+    }
+    if(document.addEvent.eventdateend.value === "") {
+        alert("Please enter an end date for this event");
+        document.addEvent.eventdateend.focus();
+        return false;
+    }
+    if(document.addEvent.eventwebsite.value === "") {
+        alert("Please enter a website for this event");
+        document.addEvent.eventwebsite.focus();
+        return false;
+    }
+    if(document.addEvent.eventcontact.value === "") {
+        alert("Please enter a contact email for this event");
+        document.addEvent.eventcontact.focus();
+        return false;
+    }
+    if(document.addEvent.eventimage.value === "") {
+        alert("Please choose an image for this event");
+        document.addEvent.eventimage.focus();
+        return false;
+    }
+    if(document.addEvent.eventlat.value === "") {
+        alert("Please enter a lat value for this event");
+        document.addEvent.eventlat.focus();
+        return false;
+    }
+    if(document.addEvent.eventlon.value === "") {
+        alert("Please enter a lon value for this event");
+        document.addEvent.eventlon.focus();
+        return false;
+    }
+    //once validated, continue as normal
+    imageUpload();
+}
