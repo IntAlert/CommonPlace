@@ -44,7 +44,7 @@ function getProfiles() {
         var location = profile.town + ", " + profile.country;
         var interests = profile.interests;
         var image = profile.profilepic;
-    })
+    });
     //PULL DATA IN GROUPS OF 5
     //PUSH INTO ARRAY
     //PUSH INTO PANES
