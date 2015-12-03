@@ -6,13 +6,23 @@
         <title>Common Place</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-        <link rel="stylesheet" href="css/profile.css">
+        <link rel="stylesheet" type="text/css" href="css/jTinder.css">
+        <link rel="stylesheet" href="css/discover.css">-->
         
+<!--
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.transform2d.js"></script>
+        <script type="text/javascript" src="js/jquery.jTinder.js"></script>
+         jTinder initialization script 
+        <script>$("#tinderslide").jTinder();</script>
+-->
+        
+<!--
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script> 
         <script src="https://cdn.firebase.com/js/client/2.3.0/firebase.js"></script>
-        <script src="js/profile.js"></script>
+        <script src="js/discover.js"></script>
+-->
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -29,9 +39,9 @@
                 <div class="collapse navbar-collapse" id="navigationbar">
                     <ul class="nav navbar-nav">
                         <li><a href="map.html">Map</a></li>
-                        <li class="active"><a href="profile.html">Profile</a></li>
+                        <li><a href="profile.html">Profile</a></li>
                         <li><a href="createevent.html">Create Event</a></li>
-                        <li><a href="discover.html">Discover</a></li>
+                        <li class="active"><a href="discover.html">Discover</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
@@ -48,31 +58,33 @@
                 </div>
             </div>
         </nav>
-        <div class="mainContent">
-            <div class="profile">
-                <img class="profilepic" id="profilepic" src="images/profileplaceholder.png" alt="Unable to load image">
-                <div class="profileinfo">
-                    <h3 id="fullname">-</h3>
-                    <h4 id="location">-</h4>
-                    <p><b>About Me: </b><span id="bio"></span></p>
-                    <p><b>Birthday: </b><span id="birthday"></span></p>
-                    <p><b>Interests: </b><span id="interests"></span></p>
-                    <hr>
-                    <p><b>Friends: </b></p>
-                    <div class="friends">
-                        <img class="friendpic" src="images/imageplaceholder.png" alt="Unable to load image">
-                        <img class="friendpic" src="images/imageplaceholder.png" alt="Unable to load image">
-                        <img class="friendpic" src="images/imageplaceholder.png" alt="Unable to load image">
-                        <img class="friendpic" src="images/imageplaceholder.png" alt="Unable to load image">
-                        <img class="friendpic" src="images/imageplaceholder.png" alt="Unable to load image">
-                        <img class="friendpic" src="images/imageplaceholder.png" alt="Unable to load image">
-                    </div>
-                </div>
-            </div>
-            <div class="events">
-                <h1>Events</h1>
-                <div class="eventtable" id="eventtable"><p>You do not have any events in your list</p></div>
+        <div class="wrap">
+            <div id="tinderslide">
+                <ul>
+                    <li class="pane1"><div class="img" id="p1img"></div><div id="p1info"></div><div class="like"></div><div class="dislike"></div></li>
+                    <li class="pane2"><div class="img" id="p2img"></div><div id="p2info"></div><div class="like"></div><div class="dislike"></div></li>
+                    <li class="pane3"><div class="img" id="p3img"></div><div id="p3info"></div><div class="like"></div><div class="dislike"></div></li>
+                    <li class="pane4"><div class="img" id="p4img"></div><div id="p4info"></div><div class="like"></div><div class="dislike"></div></li>
+                    <li class="pane5"><div class="img" id="p5img"></div><div id="p5info"></div><div class="like"></div><div class="dislike"></div></li>
+                </ul>
             </div>
         </div>
+        <!-- jTinder trigger by buttons  -->
+    <div class="actions">
+        <a href="#" class="dislike"><i></i></a>
+        <a href="#" class="like"><i></i></a>
+    </div>
+    <!-- jTinder status text  -->
+    <div id="status"></div>
+        
+    
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.transform2d.js"></script>
+        <script type="text/javascript" src="js/jquery.jTinder.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script> 
+        <script src="https://cdn.firebase.com/js/client/2.3.0/firebase.js"></script>
+        <script src="js/discover.js"></script>
     </body>
 </html>

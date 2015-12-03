@@ -31,6 +31,7 @@
                         <li><a href="map.html">Map</a></li>
                         <li><a href="profile.html">Profile</a></li>
                         <li class="active"><a href="createevent.html">Create Event</a></li>
+                        <li><a href="discover.html">Discover</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
@@ -51,33 +52,33 @@
             <h1>Create Event</h1>
             <form name="addEvent" class="addEvent">
                 <p>Event Name
-                    <input type="text" name="eventname" id="eventname" required>
+                    <input type="text" name="eventname" id="eventname">
                 </p>
                 <p>Details
-                    <input type="text" name="eventdetails" id="eventdetails" required>
+                    <input type="text" name="eventdetails" id="eventdetails">
                 </p>
                 <p>Start Date
-                    <input type="date" name="eventdatestart" id="eventdatestart" required>
+                    <input type="date" name="eventdatestart" id="eventdatestart">
                 </p>
                 <p>End Date
-                    <input type="date" name="eventdateend" id="eventdateend" required>
+                    <input type="date" name="eventdateend" id="eventdateend">
                 </p>
                 <p>Website
-                    <input type="text" name="eventwebsite" id="eventwebsite" required>
+                    <input type="text" name="eventwebsite" id="eventwebsite">
                 </p>
                 <p>Contact email
-                    <input type="email" name="eventcontact" id="eventcontact" required>
+                    <input type="email" name="eventcontact" id="eventcontact">
                 </p>
                 <p>Image
-                    <input type="file" name="eventimage" id="eventimage" required>
+                    <input type="file" name="eventimage" id="eventimage">
                 </p>
                 <p>Lat
-                    <input type="number" name="eventlat" id="eventlat" required>
+                    <input type="number" name="eventlat" id="eventlat">
                 </p>
                 <p>Lon
-                    <input type="number" name="eventlon" id="eventlon" required>
+                    <input type="number" name="eventlon" id="eventlon">
                 </p>
-                <input type="button" id="formsubmit" value="Create" onclick="imageUpload()">
+                <input type="button" id="formsubmit" value="Create" onclick="validateForm()">
             </form>
         </div>
     </body>

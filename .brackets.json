@@ -1,6 +1,10 @@
 {
     "jscodehints.detectedExclusions": [
+<<<<<<< HEAD
         "C:/wamp/www/test/CommonPlace/www/js/editProfile.js",
         "picker.js"
+=======
+        "/Users/Dan/Documents/CommonPlace/CommonPlace/www/js/viewevent.js"
+>>>>>>> 599a61fe55a01bd630bed861cd8a81aedca80ab5
     ]
 }

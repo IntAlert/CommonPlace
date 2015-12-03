@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>CommonPlace</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/editProfile.js"></script>
+    <script src="https://fb.me/react-0.14.2.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+    <script src="js/oauth.js"></script>
+</head>
+
+<body onLoad = "populateForm();">
+	<div id="wrapper">
+		<header>
+			<h1>CommonPlace</h1>
+		</header>
+<!--	bio, birthday, country, interests, town, username, email, avatar	-->
+		<section id="core">
+			<div class="profileinfo">
+				<h2>Update your Profile Info &rarr;</h2>
+                
+                <div class="gear">
+					<label>Username:</label>
+					<span id="username" class="datainfo"></span>
+					<a href="#" class="editlink">Edit Info</a>
+					<a class="savebtn">Save</a>
+				</div>
+				
+				<div class="gear">
+					<label>Primary E-Mail:</label>
+					<span id="pemail" class="datainfo"></span>
+					<a href="#" class="editlink">Edit Info</a>
+					<a class="savebtn">Save</a>
+				</div>
+				
+				<div class="gear">
+					<label>First Name:</label>
+					<span id="firstname" class="datainfo"></span>
+					<a href="#" class="editlink">Edit Info</a>
+					<a class="savebtn">Save</a>
+				</div>
+                
+                <div class="gear">
+					<label>Last Name:</label>
+					<span id="lastname" class="datainfo"></span>
+					<a href="#" class="editlink">Edit Info</a>
+					<a class="savebtn">Save</a>
+				</div>
+                
+                <div class="gear">
+					<label>Bio:</label>
+					<span id="bio" class="datainfo"></span>
+					<a href="#" class="editlink">Edit Info</a>
+					<a class="savebtn">Save</a>
+				</div>
+                
+                <div class="gear">
+					<label>Interests:</label>
+					<span id="interests" class="datainfo"></span>
+					<a href="#" class="editlink">Edit Info</a>
+					<a class="savebtn">Save</a>
+				</div>
+				
+				<div class="gear">
+					<label>Birthday:</label>
+					<span id="birthday" class="datainfo"></span>
+					<a href="#" class="editlink">Edit Info</a>
+					<a class="savebtn">Save</a>
+				</div>
+                
+                <div class="gear">
+					<label>Country:</label>
+					<span id="country" class="datainfo"></span>
+					<a href="#" class="editlink">Edit Info</a>
+					<a class="savebtn">Save</a>
+				</div>
+				
+				<div class="gear">
+					<label>City/Town:</label>
+					<span id="citytown" class="datainfo"></span>
+					<a href="#" class="editlink">Edit Info</a>
+					<a class="savebtn">Save</a>
+				</div>
+                <button onClick="saveForm();">Update Form</button>
+			</div>
+		</section>
+	</div>
+</body>
+</html>
