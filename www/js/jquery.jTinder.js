@@ -39,8 +39,6 @@
 
 
 		init: function (element) {
-            console.log("init jtinder");
-
 			container = $(">ul", element);
 			panes = $(">ul>li", element);
 			pane_width = container.width();
