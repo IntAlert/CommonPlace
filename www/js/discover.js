@@ -54,7 +54,7 @@ function getProfilesInit() {
         var paneclass = ".pane" + count;
         $(paneclass).attr('currentkey', profilekey);
         var pImg = "#p" + count + "img";
-        $(pImg).html("<img src='" + image + "' height='450px'>");
+        $(pImg).html("<img src='" + image + "' height='300px' width='300px'>");
         var pName = "#p" + count + "info";
         $(pName).html(firstname + " - " + location);
         count = count + 1;
@@ -87,7 +87,7 @@ function getMoreProfiles() {
             divtag = divtag.replace(/xxx/g,count);
             $("#panelist").append(divtag);
             var pImg = "#p" + count + "img";
-            $(pImg).html("<img src='" + image + "' height='450px'>");
+            $(pImg).html("<img src='" + image + "' height='300px' width='300px'>");
             var pName = "#p" + count + "info";
             $(pName).html(firstname + " - " + location);
             count = count + 1;

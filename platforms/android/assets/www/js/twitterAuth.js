@@ -30,22 +30,50 @@ console.log(me.id);
     console.log(me.raw.id_str);
     console.log(udata.raw.id_str);
     
-if (me.raw.id_str === udata.raw.id_str) {
+var obj = {};
+
+var fullname = me.raw.name;
+var splitname = fullname.split("");
+
+var avatar = me.raw.profile_url;
+var alias = me.raw.screen_name;
+var email = me.email;
+var firstname = splitname[0];
+var lastname = splitname[splitname.length - 1];
+var bio = me.raw.description;
+var birthday = me.birthday;
+var country = me.raw.location;
+var city = me.raw.location;
     
-    console.log("found matching id...");
+obj["profilepic"] = avatar;
+obj["alias"] = alias;
+obj["email"] = email;
+obj["firstname"] = firstname;
+obj["lastname"] = lastname;
+obj["bio"] = bio;
+obj["birthday"] = birthday;
+obj["country"] = country;
+obj["town"] = city;
+    
+console.log(obj);
+    
+if (email == udata.email) {
+    console.log("found matching email...");
     exists = true;
     console.log(exists);
     console.log("there can be only one!");
-    dfjkvd.update({bio: me.bio});
+    if (obj == "undefined") {
+        obj = "";
+    }
+    dfjkvd.update(obj);
 }
 else {
-    console.log("can't find id...");
-    console.log(me.id_str);
-    console.log(udata.id_str);
+    console.log("can't find email...");
+    console.log(email);
     exists = false;
     console.log(exists);
     console.log("pushing data!");
-    newRef.push(me);
+    newRef.push(obj);
 }
     
 })
