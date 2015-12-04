@@ -114,6 +114,7 @@ function getMoreProfiles() {
 //            console.log("set pane");
             count = count + 1;
             console.log("count: " + count);
+            initJT();
         }
-    }, initJT());
+    });
 }
