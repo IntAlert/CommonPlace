@@ -14,7 +14,6 @@ function initJT(){
         // like callback
         onLike: function (item) {
             console.log('Follow ' + (item.index()+1));
-            console.log(item);
             if(item.index()+1 === 1) {
                 getMoreProfiles();
             }
@@ -37,12 +36,10 @@ function getProfilesInit() {
     //CONNECT TO FIREBASE PROFILES BRANCH
     var ref = new Firebase("https://commonplaceapp.firebaseio.com/users");
     ref.orderByKey().limitToFirst(10).on('child_added', function(snapshot){
-        console.log("----------");
         var profile = snapshot.val();
         profilekey = snapshot.key();
         console.log("PROFILE " + profilekey);
         var firstname = profile.firstname;
-        console.log(firstname);
         var location = profile.town + ", " + profile.country;
         var interests = profile.interests;
         var image = profile.profilepic;
@@ -51,7 +48,6 @@ function getProfilesInit() {
         $(pImg).html("<img src='" + image + "' height='450px'>");
         var pName = "#p" + count + "info";
         $(pName).html(firstname + " - " + location);
-        console.log("set pane");
         count = count + 1;
         console.log("count: " + count);
     });
