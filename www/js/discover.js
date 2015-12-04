@@ -7,6 +7,9 @@ function initJT(){
         // dislike callback
         onDislike: function (item) {
             console.log('Dont follow ' + (item.index()+1));
+            var paneclass = ".pane" + (item.index()+1); //set paneclass for getelement
+            var currentkey = $(paneclass).attr('currentkey'); //retrieve currentkey custom attr
+            dislikeProfile(currentkey);
             if(item.index()+1 === 1) {
                 getMoreProfiles();
             }
@@ -14,6 +17,9 @@ function initJT(){
         // like callback
         onLike: function (item) {
             console.log('Follow ' + (item.index()+1));
+            var paneclass = ".pane" + (item.index()+1); //set paneclass for getelement
+            var currentkey = $(paneclass).attr('currentkey'); //retrieve currentkey custom attr
+            likeProfile(currentkey); //pass into like func
             if(item.index()+1 === 1) {
                 getMoreProfiles();
             }
@@ -29,6 +35,8 @@ function initJT(){
 ////////// MAIN CODE //////////
 var count = 1;
 var profilekey = "";
+var user = localStorage.getItem("uid");
+console.log("USER ID: " + user);
 initJT();
 getProfilesInit();
 
@@ -43,7 +51,8 @@ function getProfilesInit() {
         var location = profile.town + ", " + profile.country;
         var interests = profile.interests;
         var image = profile.profilepic;
-        
+        var paneclass = ".pane" + count;
+        $(paneclass).attr('currentkey', profilekey);
         var pImg = "#p" + count + "img";
         $(pImg).html("<img src='" + image + "' height='450px'>");
         var pName = "#p" + count + "info";
@@ -74,7 +83,7 @@ function getMoreProfiles() {
             var interests = profile.interests;
             var image = profile.profilepic;
             
-            var divtag = '<li class="panexxx"><div class="img" id="pxxximg"></div><div id="pxxxinfo"></div><div class="like"></div><div class="dislike"></div></li>';
+            var divtag = '<li class="panexxx" currentkey="' + profilekey + '"><div class="img" id="pxxximg"></div><div id="pxxxinfo"></div><div class="like"></div><div class="dislike"></div></li>';
             divtag = divtag.replace(/xxx/g,count);
             $("#panelist").append(divtag);
             var pImg = "#p" + count + "img";
@@ -84,6 +93,26 @@ function getMoreProfiles() {
             count = count + 1;
             console.log("count: " + count);
             initJT();
+        }
+    });
+}
+
+function likeProfile(profilekey) {
+    var link = "https://commonplaceapp.firebaseio.com/users/" + user + "/following/";
+    var ref = new Firebase(link);
+    ref.once("value", function(snapshot) {
+        ref.child(profilekey).set('true');
+    });
+}
+
+function dislikeProfile(profilekey) {
+    var link = "https://commonplaceapp.firebaseio.com/users/" + user + "/following/";
+    var ref = new Firebase(link);
+    ref.once("value", function(snapshot) {
+        var exists = snapshot.child(profilekey).exists();
+        console.log(exists);
+        if(exists === true) {
+            ref.child(profilekey).remove();
         }
     });
 }
