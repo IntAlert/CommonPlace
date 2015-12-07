@@ -21,5 +21,5 @@ function init() {
          console.log(data.additionalData);
 //        window.location = "map.html";
     });
-    window.location = "map.html";
+//    window.location = "map.html";
 }
