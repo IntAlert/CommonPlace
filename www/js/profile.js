@@ -53,6 +53,16 @@ function getEvents(link) {
     });
 }
 
+function getFollowing() {
+    //connect to firebase user profile
+    //navigate to following list
+        //pull list of keys
+        //connect to firebase with new ref - connect to users with key
+            //pull user record
+            //get user profile pic
+            //embed into following list
+}
+
 function viewEvent(eventkey) {
     localStorage.setItem("eventkey", eventkey);
     localStorage.setItem("prevloc", "profile.html"); //save map.html to previous location (also add GPS coords to center map)

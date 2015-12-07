@@ -22,13 +22,13 @@ h1 {
     width: 200px;
 }
 
-.friends {
+.following {
     height: 64px;
     overflow:auto;
     white-space:nowrap;
 }
 
-.friendpic {
+.followingpic {
     border: 1px solid;
     height: 48px;
     width: 48px;
