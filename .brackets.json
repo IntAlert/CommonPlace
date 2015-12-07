@@ -1,5 +1,6 @@
 {
     "jscodehints.detectedExclusions": [
-        "/Users/Dan/Documents/CommonPlace/CommonPlace/www/js/viewevent.js"
+        "/Users/Dan/Documents/CommonPlace/CommonPlace/www/js/viewevent.js",
+        "/Users/Dan/Documents/CommonPlace/CommonPlace/www/js/index.js"
     ]
 }
