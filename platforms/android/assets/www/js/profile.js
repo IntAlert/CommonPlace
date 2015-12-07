@@ -24,6 +24,7 @@ function getProfile() {
         document.getElementById("interests").innerHTML = interests;
     });
     getEvents(link);
+    getFollowing(link);
 }
 
 function getEvents(link) {
@@ -49,6 +50,22 @@ function getEvents(link) {
             console.log("SNAP: " + eventname);
             eventTable = eventTable + "<td><img class='eventimage' src='" + eventimage + "' alt='unable to load image'></td><td><p class='eventname'><b>" + eventname + "</b></p><p class='eventdetails'>" + eventdetails + "</p><p>Website: <a href='" + eventwebsite + "' class='eventwebsite'>" + eventwebsite + "</a></p><p>Contact: <a href='mailto:" + eventcontact + "' class='eventcontact'>" + eventcontact + "</a></p><button class='buttonViewEvent' type='button' onclick='viewEvent(" + "&#39;" + eventkey + "&#39;" + ")'>View Event Page</button><button class='buttonRemoveEvent' type='button' onclick='removeEvent(" + "&#39;" + eventkey + "&#39;" + ")'>Remove Event</button></td></tr>";
             document.getElementById("eventtable").innerHTML = eventTable;
+        });
+    });
+}
+
+function getFollowing(link) {
+    var followingLink = link + "/following"; //craft following link
+    var ref = new Firebase(followingLink); //connect to firebase
+    ref.on("child_added", function(snapshot) {
+        var followingkey = snapshot.key(); //pull keys
+        console.log("following: " + followingkey);
+        var ref2 = new Firebase("https://commonplaceapp.firebaseio.com/users/" + followingkey); //connect to new firebase with userkey
+        ref2.on("value", function(snapshot) {
+            var userObject = snapshot.val(); //pull record
+            var profilepic = userObject.profilepic; //extract profilepic
+            var fullname = userObject.firstname + " " + userObject.lastname;
+            $("#following").append("<img class='followingpic' src='" + profilepic + "' title='" + fullname + "' alt='Unable to load image'>"); //embed into following
         });
     });
 }
