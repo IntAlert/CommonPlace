@@ -93,7 +93,6 @@ function removeEvent(eventkey) {
             getEvents(link);
         } else {
             ref.child(eventkey).remove();
-            console.log("EMPTY LIST!!")
             document.getElementById("eventtable").innerHTML = "<p>You do not have any events in your list</p>";
         }
     });
