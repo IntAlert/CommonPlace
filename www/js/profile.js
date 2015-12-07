@@ -24,6 +24,7 @@ function getProfile() {
         document.getElementById("interests").innerHTML = interests;
     });
     getEvents(link);
+    getFollowing(link);
 }
 
 function getEvents(link) {
@@ -53,14 +54,20 @@ function getEvents(link) {
     });
 }
 
-function getFollowing() {
-    //connect to firebase user profile
-    //navigate to following list
-        //pull list of keys
-        //connect to firebase with new ref - connect to users with key
-            //pull user record
-            //get user profile pic
-            //embed into following list
+function getFollowing(link) {
+    var followingLink = link + "/following"; //craft following link
+    var ref = new Firebase(followingLink); //connect to firebase
+    ref.on("child_added", function(snapshot) {
+        var followingkey = snapshot.key(); //pull keys
+        console.log("following: " + followingkey);
+        var ref2 = new Firebase("https://commonplaceapp.firebaseio.com/users/" + followingkey); //connect to new firebase with userkey
+        ref2.on("value", function(snapshot) {
+            var userObject = snapshot.val(); //pull record
+            var profilepic = userObject.profilepic; //extract profilepic
+            var fullname = userObject.firstname + " " + userObject.lastname;
+            $("#following").append("<img class='followingpic' src='" + profilepic + "' title='" + fullname + "' alt='Unable to load image'>"); //embed into following
+        });
+    });
 }
 
 function viewEvent(eventkey) {
