@@ -1,88 +1,50 @@
-<!--DOCTYPE HTML -->
-
+<!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Common Place</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/index.css">
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="https://cdn.firebase.com/js/client/2.3.0/firebase.js"></script>
+        
         <script src="https://fb.me/react-0.14.2.min.js"></script>
-        
-        <script src="js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-        
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.0.0/jquery.serialize-object.compiled.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/path.js/0.8.4/path.min.js"></script>
-<!--        <script src="https://fb.me/react-dom-0.14.2.min.js"></script>-->
-        <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
-        <script src="js/login.js"></script>
         <script src="js/twitterAuth.js"></script>
-        
         <script src="https://connect.facebook.net/en_US/all.js"></script>
-        
-<header class="navbar navbar-static-top navbar-inverse" id="top" role="banner">
-    <div class="container">
-        <div class="navbar-header">
-            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"> <span class="sr-only">Toggle navigation</span>
- <span class="icon-bar"></span>
- <span class="icon-bar"></span>
- <span class="icon-bar"></span>
-
-            </button> <a href="#" class="navbar-brand">Firebase login</a>
-
-        </div>
-        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-            <ul class="nav navbar-nav">
-                <li> <a href="#/">Login</a>
-
-                </li>
-                <li> <a href="#/logout">Logout</a>
-
-                </li>
-                <li> <a href="signup.html">Register</a>
-
-                </li>
-                <li> <a href="profile.html">Profile</a>
-
-                </li>
-            </ul>
-        </nav>
-    </div>
-</header>
-
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/PushNotification.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-
-    </head>
-    
-    <body>
-<div id="container" class="container">
-    <!-- LOGIN -->
-    <form id="frmLogin" role="form">
-         <h2>Login</h2>
-
-        <div class="form-group">
-            <label for="txtEmail">Email address</label>
-            <input type="email" class="form-control" id="txtEmail" placeholder="Enter email" name="email" />
-        </div>
-        <div class="form-group">
-            <label for="txtPass">Password</label>
-            <input type="password" class="form-control" id="txtPass" placeholder="Password" name="password" />
-        </div>
-        <button type="button" class="btn btn-default btn-block btn-primary" onClick="login();">Login</button>
-        <br />
-        <br />
-         <h4>Have Facebook or Twitter?</h4>
-        <fb:login-button scope="public_profile,email" onClick="checkLoginState();"></fb:login-button>
         
-        <input type="image" src="images/sign-in-with-twitter-gray.png" alt="button" width="158" height="28" onclick="authMe();" />
-
-        <h4>New to CommonPlace? Please sign-up!</h4>
-         <a href="signup.html" class="btn btn-danger bt-social">Sign-up w/ Email</a>  
-
-    </form>
-
-    <hr />
-
-</div>
+        <meta http-equiv="Content-Security-Policy" content="default-src https://cdn.example.net; child-src 'none'; object-src 'none'"> 
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="map.html">Common Place</a>
+                </div>
+            </div>
+        </nav>
+        
+        <div id="login" class="login">
+            <form id="frmLogin" role="form">
+                <h2>Login</h2>
+                <label for="txtEmail">Email address</label>
+                <input type="email" class="form-control" id="txtEmail" placeholder="Enter email" name="email" />
+                <label for="txtPass">Password</label>
+                <input type="password" class="form-control" id="txtPass" placeholder="Password" name="password" />
+                <button type="button" class="btn btn-default btn-block btn-primary loginbtn" onClick="login();">Login</button>
+<!-- ****           <fb:login-button scope="public_profile,email" onClick="checkLoginState();"></fb:login-button>--> <!--DOESNT LOAD-->
+                <h4>or</h4>
+                <input type="image" src="images/sign-in-with-twitter-gray.png" class="twitterbtn" alt="button" height="34" onclick="authMe();" />
+                <hr>
+                <button type="button" class="btn btn-danger newuserbtn" onclick="window.location = 'signup.html';">New User</a>  
+            </form>
+        </div>
     </body>
 </html>
