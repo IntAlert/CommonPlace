@@ -1,5 +1,4 @@
 // ***** PUSH NOTIFICATION INIT ***** \\
-
 document.addEventListener("deviceready", init, false);
 
 function init() {
@@ -25,9 +24,6 @@ function init() {
 
 
 // ***** BEGIN CODE ***** \\
-
-//var ref = new Firebase("https://commonplaceapp.firebaseio.com");
-
 function login() {
     var email = document.getElementById("txtEmail").value;
     var password = document.getElementById("txtPass").value;
@@ -39,13 +35,10 @@ function login() {
         alert("Please enter you email");
         return;
     } else if (password === "") {
-            alert("Please enter you password");
-            return;
+        alert("Please enter you password");
+        return;
     } else {
-        console.log("trying to login");
         var ref = new Firebase("https://commonplaceapp.firebaseio.com");
-//        console.log("REF: " + ref);
-        alert("REF: " + ref);
         ref.authWithPassword({
             email    : email,
             password : password
@@ -65,7 +58,6 @@ function newuser() {
     var obj = {};
     var uemail = document.getElementById("txtEmail").value;
     var pass = document.getElementById("txtPass").value;
-    //obj["email"] = uemail;
     console.log(uemail);
     obj["email"] = uemail;
     
