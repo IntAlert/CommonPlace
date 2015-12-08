@@ -1,0 +1,44 @@
+.login {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    width: 70%;
+}
+
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h4 {
+    font-style: italic;
+    text-align: center;
+}
+
+.form-control {
+    margin-bottom: 10px;
+}
+
+.loginbtn {
+    display:block;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+.twitterbtn {
+    display: block;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+.newuserbtn {
+    display: block;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}

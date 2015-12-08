@@ -7,20 +7,19 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/index.css">
         
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/PushNotification.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script src="https://cdn.firebase.com/js/client/2.3.0/firebase.js"></script>
         
         <script src="https://fb.me/react-0.14.2.min.js"></script>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.0.0/jquery.serialize-object.compiled.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/path.js/0.8.4/path.min.js"></script>
         <script src="js/twitterAuth.js"></script>
         <script src="https://connect.facebook.net/en_US/all.js"></script>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/PushNotification.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        
-        <meta http-equiv="Content-Security-Policy" content="default-src https://cdn.example.net; child-src 'none'; object-src 'none'"> 
+                
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.firebase.com https://*.firebaseio.com; object-src 'self'; style-src 'self' 'unsafe-inline' https://maxcdn.bootstrapcdn.com; img-src 'self'; media-src 'none'; font-src 'self' https://maxcdn.bootstrapcdn.com; connect-src 'self' https://*.firebase.com https://*.firebaseio.com wss://*.firebaseio.com; frame-src gap://ready">
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -32,7 +31,7 @@
         </nav>
         
         <div id="login" class="login">
-            <form id="frmLogin" role="form">
+            <form id="frmLogin">
                 <h2>Login</h2>
                 <label for="txtEmail">Email address</label>
                 <input type="email" class="form-control" id="txtEmail" placeholder="Enter email" name="email" />
@@ -43,7 +42,7 @@
                 <h4>or</h4>
                 <input type="image" src="images/sign-in-with-twitter-gray.png" class="twitterbtn" alt="button" height="34" onclick="authMe();" />
                 <hr>
-                <button type="button" class="btn btn-danger newuserbtn" onclick="window.location = 'signup.html';">New User</a>  
+                <button type="button" class="btn btn-danger newuserbtn" onclick="window.location = 'signup.html';">New User</button>
             </form>
         </div>
     </body>

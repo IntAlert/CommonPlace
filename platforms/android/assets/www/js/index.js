@@ -26,7 +26,7 @@ function init() {
 
 // ***** BEGIN CODE ***** \\
 
-var ref = new Firebase("https://commonplaceapp.firebaseio.com");
+//var ref = new Firebase("https://commonplaceapp.firebaseio.com");
 
 function login() {
     var email = document.getElementById("txtEmail").value;
@@ -42,7 +42,10 @@ function login() {
             alert("Please enter you password");
             return;
     } else {
+        console.log("trying to login");
         var ref = new Firebase("https://commonplaceapp.firebaseio.com");
+//        console.log("REF: " + ref);
+        alert("REF: " + ref);
         ref.authWithPassword({
             email    : email,
             password : password
