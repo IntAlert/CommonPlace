@@ -52,6 +52,18 @@ function populateForm() {
     });
 }
 
+function submitForm() {
+    $("input[type='file']").each(function(){
+        if($(this).val().length == 0){
+            //file not chosen
+            saveForm();
+        } else {
+            //file chosen
+            imageUpload();
+        }
+    });
+}
+
 function imageUpload() {
     var file = document.querySelector("input[type=file]").files[0];
     var reader = new FileReader();
