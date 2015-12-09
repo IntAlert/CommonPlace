@@ -65,9 +65,15 @@ function getFollowing(link) {
             var userObject = snapshot.val(); //pull record
             var profilepic = userObject.profilepic; //extract profilepic
             var fullname = userObject.firstname + " " + userObject.lastname;
-            $("#following").append("<img class='followingpic' src='" + profilepic + "' title='" + fullname + "' alt='Unable to load image'>"); //embed into following
+            $("#following").append("<img class='followingpic' src='" + profilepic + "' title='" + fullname + "' alt='Unable to load image' onclick='viewUser(\"" + followingkey + "\");'>"); //embed into following
         });
     });
+}
+
+function viewUser(key) {
+    console.log("KEY: " + key);
+    localStorage.setItem("viewprofileid", key);
+    window.location = "viewprofile.html";
 }
 
 function viewEvent(eventkey) {
