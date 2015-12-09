@@ -1,4 +1,4 @@
-var ref = "https://cdn.firebase.com/js/client/2.0.4/firebase.js"
+var ref = "https://cdn.firebase.com/js/client/2.0.4/firebase.js";
 
 //JQuery to allow users to edit form fields
 $(document).ready(function(){
@@ -62,13 +62,13 @@ document.getElementById("interests").innerHTML = udata.interests;
 document.getElementById("birthday").innerHTML = udata.birthday; 
 document.getElementById("country").innerHTML = udata.country; 
 document.getElementById("citytown").innerHTML = udata.town; 
-})
+});
 }
 
 function imageUpload() {
     var file = document.querySelector("input[type=file]").files[0];
     var reader = new FileReader();
-    console.log("uploading image")
+    console.log("uploading image");
     
     reader.onloadend = function () {
         
@@ -83,7 +83,7 @@ function imageUpload() {
         reader.readAsDataURL(file);
     }
     
-};
+}
 
 function saveForm(image) {
 
@@ -136,5 +136,5 @@ if (email == udata.email) {
     }
     dfjkvd.update(obj);
 }
-})
+});
 }
