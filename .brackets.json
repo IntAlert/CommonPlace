@@ -1,5 +1,6 @@
 {
     "jscodehints.detectedExclusions": [
-        "/Users/Dan/Documents/CommonPlace/CommonPlace/www/js/viewprofile.js"
+        "/Users/Dan/Documents/CommonPlace/CommonPlace/www/js/viewprofile.js",
+        "/Users/Dan/Documents/CommonPlace/CommonPlace/www/js/discover.js"
     ]
 }

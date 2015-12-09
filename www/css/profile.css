@@ -34,6 +34,7 @@ h1 {
 
 .followingpic {
     border: 1px solid;
+    cursor: pointer;
     height: 64px;
     width: 64px;
 }
@@ -65,4 +66,8 @@ td {
     color: white;
     float: right;
     margin-right: 8px;
+}
+
+.buttonback {
+    position: fixed;
 }

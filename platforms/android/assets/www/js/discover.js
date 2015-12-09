@@ -49,6 +49,7 @@ function getProfilesInit() {
         console.log("PROFILE " + profilekey);
         var firstname = profile.firstname;
         var location = profile.town + ", " + profile.country;
+        var bio = profile.bio;
         var interests = profile.interests;
         var image = profile.profilepic;
         var paneclass = ".pane" + count;
@@ -56,7 +57,7 @@ function getProfilesInit() {
         var pImg = "#p" + count + "img";
         $(pImg).html("<img src='" + image + "' height='300px' width='300px'>");
         var pName = "#p" + count + "info";
-        $(pName).html(firstname + " - " + location);
+        $(pName).html(firstname + " - " + location + "<br><div class='bio'>" + bio + "</div>");
         count = count + 1;
         console.log("count: " + count);
     });
@@ -80,6 +81,7 @@ function getMoreProfiles() {
         } else {
             var firstname = profile.firstname;
             var location = profile.town + ", " + profile.country;
+            var bio = profile.bio;
             var interests = profile.interests;
             var image = profile.profilepic;
             
@@ -89,7 +91,7 @@ function getMoreProfiles() {
             var pImg = "#p" + count + "img";
             $(pImg).html("<img src='" + image + "' height='300px' width='300px'>");
             var pName = "#p" + count + "info";
-            $(pName).html(firstname + " - " + location);
+            $(pName).html(firstname + " - " + location + "<br><div class='bio'>" + bio + "</div>");
             count = count + 1;
             console.log("count: " + count);
             initJT();
