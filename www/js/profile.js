@@ -103,3 +103,7 @@ function removeEvent(eventkey) {
         }
     });
 }
+
+function editProfile() {
+    window.location = "editprofile.html";
+}

@@ -109,3 +109,7 @@ function saveForm(image) {
         }
     });
 }
+
+function cancel(){
+    window.location = "profile.html";
+}

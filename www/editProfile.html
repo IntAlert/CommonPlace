@@ -1,100 +1,124 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>CommonPlace</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script type="text/javascript" src="js/editProfile.js"></script>
-    <script src="https://fb.me/react-0.14.2.min.js"></script>
-    <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
-    <script src="js/oauth.js"></script>
-</head>
-
-<body onLoad = "populateForm();">
-	<div id="wrapper">
-		<header>
-			<h1>CommonPlace</h1>
-		</header>
-<!--	bio, birthday, country, interests, town, username, email, avatar	-->
-		<section id="core">
-			<div class="profileinfo">
-				<h2>Update your Profile Info &rarr;</h2>
-                
-                <div class="gear">
-					<label>Avatar:</label>
-					<input id="thelastairbender" class="datainfo" type="file">
-<!--
-					<a href="#" class="editlink">Edit Info</a>
-					<a class="savebtn">Save</a>
--->
-				</div>
-                
-                <div class="gear">
-					<label>Username:</label>
-					<span id="username" class="datainfo"></span>
-					<a href="#" class="editlink">Edit Info</a>
-					<a class="savebtn">Save</a>
-				</div>
-				
-				<div class="gear">
-					<label>Primary E-Mail:</label>
-					<span id="pemail" class="datainfo"></span>
-					<a href="#" class="editlink">Edit Info</a>
-					<a class="savebtn">Save</a>
-				</div>
-				
-				<div class="gear">
-					<label>First Name:</label>
-					<span id="firstname" class="datainfo"></span>
-					<a href="#" class="editlink">Edit Info</a>
-					<a class="savebtn">Save</a>
-				</div>
-                
-                <div class="gear">
-					<label>Last Name:</label>
-					<span id="lastname" class="datainfo"></span>
-					<a href="#" class="editlink">Edit Info</a>
-					<a class="savebtn">Save</a>
-				</div>
-                
-                <div class="gear">
-					<label>Bio:</label>
-					<span id="bio" class="datainfo"></span>
-					<a href="#" class="editlink">Edit Info</a>
-					<a class="savebtn">Save</a>
-				</div>
-                
-                <div class="gear">
-					<label>Interests:</label>
-					<span id="interests" class="datainfo"></span>
-					<a href="#" class="editlink">Edit Info</a>
-					<a class="savebtn">Save</a>
-				</div>
-				
-				<div class="gear">
-					<label>Birthday:</label>
-					<span id="birthday" class="datainfo"></span>
-					<a href="#" class="editlink">Edit Info</a>
-					<a class="savebtn">Save</a>
-				</div>
-                
-                <div class="gear">
-					<label>Country:</label>
-					<span id="country" class="datainfo"></span>
-					<a href="#" class="editlink">Edit Info</a>
-					<a class="savebtn">Save</a>
-				</div>
-				
-				<div class="gear">
-					<label>City/Town:</label>
-					<span id="citytown" class="datainfo"></span>
-					<a href="#" class="editlink">Edit Info</a>
-					<a class="savebtn">Save</a>
-				</div>
-                <button onClick="imageUpload();">Update Form</button>
-			</div>
-		</section>
-	</div>
-</body>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Common Place</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" href="css/editprofile.css">
+        
+        <script src='cordova.js'></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script src="https://cdn.firebase.com/js/client/2.3.0/firebase.js"></script>
+        <script src="js/auth.js"></script>
+        <script src="js/oauth.js"></script>
+        <script src="js/editProfile.js"></script>
+        <script src="https://fb.me/react-0.14.2.min.js"></script>
+    </head>
+    
+    <body onLoad = "populateForm();">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigationbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="map.html">Common Place</a>
+                </div>
+                <div class="collapse navbar-collapse" id="navigationbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="map.html">Map</a></li>
+                        <li class="active"><a href="profile.html">Profile</a></li>
+                        <li><a href="createevent.html">Create Event</a></li>
+                        <li><a href="discover.html">Discover</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-header">Settings</li>
+                                <li><a href="#"><div id="radiusSlider"></div></a></li>
+                                <li><a href="https://github.com/dlucas94/CommonPlace" target="_blank">Help</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#" onclick="logout()">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="wrapper" class="wrapper">
+            <section id="core">
+                <div class="profileinfo">
+                    <h1>Update your Profile Info</h1>
+                    <div class="gear">
+                        <label>Profile Picture:</label>
+                        <input id="thelastairbender" class="datainfo" type="file">
+                    </div>
+                    <div class="gear">
+                        <label>Username:</label>
+                        <span id="username" class="datainfo"></span>
+                        <a href="#" class="editlink">Edit Info</a>
+                        <a class="savebtn">Save</a>
+                    </div>
+                    <div class="gear">
+                        <label>Primary E-Mail:</label>
+                        <span id="pemail" class="datainfo"></span>
+                        <a href="#" class="editlink">Edit Info</a>
+                        <a class="savebtn">Save</a>
+                    </div>
+                    <div class="gear">
+                        <label>First Name:</label>
+                        <span id="firstname" class="datainfo"></span>
+				        <a href="#" class="editlink">Edit Info</a>
+                        <a class="savebtn">Save</a>
+                    </div>
+                    <div class="gear">
+                        <label>Last Name:</label>
+                        <span id="lastname" class="datainfo"></span>
+                        <a href="#" class="editlink">Edit Info</a>
+                        <a class="savebtn">Save</a>
+                    </div>
+                    <div class="gear">
+                        <label>Bio:</label>
+                        <span id="bio" class="datainfo"></span>
+                        <a href="#" class="editlink">Edit Info</a>
+                        <a class="savebtn">Save</a>
+                    </div>
+                    <div class="gear">
+                        <label>Interests:</label>
+                        <span id="interests" class="datainfo"></span>
+                        <a href="#" class="editlink">Edit Info</a>
+                        <a class="savebtn">Save</a>
+                    </div>
+                    <div class="gear">
+                        <label>Birthday:</label>
+                        <span id="birthday" class="datainfo"></span>
+                        <a href="#" class="editlink">Edit Info</a>
+                        <a class="savebtn">Save</a>
+                    </div>
+                    <div class="gear">
+                        <label>Country:</label>
+                        <span id="country" class="datainfo"></span>
+                        <a href="#" class="editlink">Edit Info</a>
+                        <a class="savebtn">Save</a>
+                    </div>
+                    <div class="gear">
+                        <label>City/Town:</label>
+                        <span id="citytown" class="datainfo"></span>
+                        <a href="#" class="editlink">Edit Info</a>
+                        <a class="savebtn">Save</a>
+                    </div>
+                    <button class="buttoncancel" onClick="cancel();">Cancel</button>
+                    <button class="buttonupdate" onClick="imageUpload();">Update Profile</button>
+                </div>
+            </section>
+        </div>
+    </body>
 </html>
