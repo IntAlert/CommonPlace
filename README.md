@@ -10,5 +10,5 @@ When you first launch CommonPlace, you have the option to log in using your Twit
 
 ### The Map
 Once you have set up your account and logged in, you will be taken to the *Map* page. You may be prompted to allow Location permissions and, upon doing so, the map will be centred around your position along with a search radius.
-#### Adjusting search radius
+##### Adjusting search radius
 To adjust the search radius, click the button in the top right of the screen to expand the navigation menu and then click the *Settings cog* icon. From there, just adjust the slider to your chosen search radius.
