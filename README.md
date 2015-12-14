@@ -19,7 +19,8 @@ Once you have set up your account and logged in, you will be taken to the *Map* 
 ### Profile
 Navigating to the *Profile* page will present you with your personal CommonPlace profile. This is viewable by other users and allows them to see who you are, where you are based and your interests. Your following list is also viewable.
 * __Editing your profile__ - To edit your profile, click the "*Edit*" button in the top left corner. You will then be given the option to edit/update your information.
-* __Viewing users you have followed__ - 
+* __Viewing users you have followed__ - On your profile, you can see a list of the users that you have chosen to follow using the *Discover* feature. Clicking on the profile picture of a user will take you to their profile page.
+* __Events__ - Under your main profile is the *Events* list. This is only available to you and allows you to see all of the events you are interested in. For each event in your list, you are provided with a summary. You can then click the "*View Event Page*" button to be taken to the page for the event, where more information is available. There is also a "*Remove Event*" button, which will remove the event from your list.
 
 ### Create Event
 The *Create Event* page allows users to host their own events within CommonPlace.
