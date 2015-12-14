@@ -1,7 +1,7 @@
 # CommonPlace
 The CommonPlace app allows users to find events happening in their local area, as well as connect with others within the local community who share the same interests.
 
-![Screenshot](/screenshots/screenmap1.jpg?raw=true)
+![Screenshot](screenshots/screenmap1.jpg?raw=true)
 
 **Note:** This app is still under development so if you encounter any bugs, please let the Tech Team know!
 
