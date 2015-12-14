@@ -18,3 +18,20 @@ Once you have set up your account and logged in, you will be taken to the *Map* 
 
 ### Profile
 Navigating to the *Profile* page will present you with your personal CommonPlace profile. This is viewable by other users and allows them to see who you are, where you are based and your interests. Your following list is also viewable.
+* __Editing your profile__ - To edit your profile, click the "*Edit*" button in the top left corner. You will then be given the option to edit/update your information.
+* __Viewing users you have followed__ - 
+
+### Create Event
+The *Create Event* page allows users to host their own events within CommonPlace.
+* __Event Name__ - This is the name of your event and should be short, clear and easy for users to understand.
+* __Details__ - Any information that can not be put into the *Event Title* goes in this field. This can be any extra information such as food/drink availability, parking and cloakroom facilities.
+* __Start Date__ - The start date of your event. Allows you to easily select the date using a pop-up datepicker.
+* __End Date__ - The end date of your event. Allows you to easily select the date using a pop-up datepicker.
+* __Website__ - The website/social media account that your event is linked to. This could be the official ticket reseller website or the Facebook page.
+* __Contact email__ - The email address you would like users to contact you at. This will be embedded into your event page so that users can easily compose and send messages.
+* __Image__ - This will open up a filepicker and allow you to select a relevant image for your event.
+
+### Discover
+The *Discover* feature allows you to connect with people in the local community that you share similar interests with and gives you the option to "follow" other users by swiping their profile.
+* Swiping a profile to the **left** will dismiss a profile when you do not think that you share much in common with the other user.
+* Swiping a profile to the **right** will add the user to your *following* list, which is available on your profile.
