@@ -57,7 +57,7 @@ function newuser() {
     var obj = {};
     var uemail = document.getElementById("txtEmail").value;
     var pass = document.getElementById("txtPass").value;
-    console.log(uemail);
+//    console.log(uemail);
     obj["email"] = uemail;
     
     ref.createUser({
