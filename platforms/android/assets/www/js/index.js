@@ -30,7 +30,10 @@ function login() {
     if (typeof(Storage) !== "undefined") {
         sessionStorage.setItem("email", email);
     }
+<<<<<<< HEAD
     console.log(sessionStorage);
+=======
+>>>>>>> 93df7b988800f1fea0d534f0f4477dc093a10e60
     if (email === "") {
         alert("Please enter you email");
         return;
@@ -58,7 +61,11 @@ function newuser() {
     var obj = {};
     var uemail = document.getElementById("txtEmail").value;
     var pass = document.getElementById("txtPass").value;
+<<<<<<< HEAD
     console.log(uemail);
+=======
+//    console.log(uemail);
+>>>>>>> 93df7b988800f1fea0d534f0f4477dc093a10e60
     obj["email"] = uemail;
     
     ref.createUser({

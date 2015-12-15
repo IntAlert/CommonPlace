@@ -1,5 +1,4 @@
 var user = localStorage.getItem("uid");
-console.log("USER ID: " + user);
 getProfile();
 
 function getProfile() {
@@ -30,11 +29,11 @@ function getProfile() {
 function getEvents(link) {
     var eventTable = "<table><tr>";
     var eventlink = link + "/events";
-    console.log("events link : " + eventlink);
+//    console.log("events link : " + eventlink);
     var ref = new Firebase(eventlink);
     ref.on("child_added", function(snapshot) {
         var eventkey = snapshot.key();
-        console.log("Event Key: " + eventkey);
+//        console.log("Event Key: " + eventkey);
         //take each event key
         //connect to firebase with new ref - events table
         var ref2 = new Firebase("https://commonplaceapp.firebaseio.com/events/" + eventkey);
@@ -47,7 +46,7 @@ function getEvents(link) {
             var eventdetails = eventObject.details;
             var eventwebsite = eventObject.website;
             var eventcontact = eventObject.contactdetails;
-            console.log("SNAP: " + eventname);
+//            console.log("SNAP: " + eventname);
             eventTable = eventTable + "<td><img class='eventimage' src='" + eventimage + "' alt='unable to load image'></td><td><p class='eventname'><b>" + eventname + "</b></p><p class='eventdetails'>" + eventdetails + "</p><p>Website: <a href='" + eventwebsite + "' class='eventwebsite'>" + eventwebsite + "</a></p><p>Contact: <a href='mailto:" + eventcontact + "' class='eventcontact'>" + eventcontact + "</a></p><button class='buttonViewEvent' type='button' onclick='viewEvent(" + "&#39;" + eventkey + "&#39;" + ")'>View Event Page</button><button class='buttonRemoveEvent' type='button' onclick='removeEvent(" + "&#39;" + eventkey + "&#39;" + ")'>Remove Event</button></td></tr>";
             document.getElementById("eventtable").innerHTML = eventTable;
         });
@@ -59,7 +58,11 @@ function getFollowing(link) {
     var ref = new Firebase(followingLink); //connect to firebase
     ref.on("child_added", function(snapshot) {
         var followingkey = snapshot.key(); //pull keys
+<<<<<<< HEAD
         console.log("following: " + followingkey);
+=======
+//        console.log("following: " + followingkey);
+>>>>>>> 93df7b988800f1fea0d534f0f4477dc093a10e60
         var ref2 = new Firebase("https://commonplaceapp.firebaseio.com/users/" + followingkey); //connect to new firebase with userkey
         ref2.on("value", function(snapshot) {
             var userObject = snapshot.val(); //pull record
@@ -71,7 +74,11 @@ function getFollowing(link) {
 }
 
 function viewUser(key) {
+<<<<<<< HEAD
     console.log("KEY: " + key);
+=======
+//    console.log("KEY: " + key);
+>>>>>>> 93df7b988800f1fea0d534f0f4477dc093a10e60
     localStorage.setItem("viewprofileid", key);
     window.location = "viewprofile.html";
 }
@@ -85,15 +92,15 @@ function viewEvent(eventkey) {
 function removeEvent(eventkey) {
 //    Button that removes event from list and then forces a repull of info to instantly update without refreshing page
     var eventkey = eventkey;
-    console.log("KEY: " + eventkey + " + UID: " + user);
+//    console.log("KEY: " + eventkey + " + UID: " + user);
     var fb = "https://commonplaceapp.firebaseio.com/users/" + user + "/events/";
-    console.log("FB: " + fb);
+//    console.log("FB: " + fb);
     var ref = new Firebase(fb);
     ref.once("value", function(snapshot) {
         var eventCount = snapshot.numChildren(); //Get number of events in list
-        console.log(eventCount);
+//        console.log(eventCount);
         if(eventCount > 1) {
-            console.log("remove event");
+//            console.log("remove event");
             ref.child(eventkey).remove();
             var link = "https://commonplaceapp.firebaseio.com/users/" + user;
             getEvents(link);

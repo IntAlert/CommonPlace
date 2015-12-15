@@ -35,7 +35,7 @@ function onSuccess(position) {
 }
 
 function onError(error) {
-    console.log("Ooops");
+    console.log("Error");
 }
 
 function getName(authData) {
@@ -73,21 +73,18 @@ function getEvents(map) {
         var interested = "";
         var event = snapshot.val();
         var eventkey = snapshot.key();
-        console.log("KEY" + eventkey);
-        console.log(event);
+//        console.log("KEY" + eventkey);
+//        console.log(event);
         var user = localStorage.getItem("uid");
         var fb = "https://commonplaceapp.firebaseio.com/users/" + user + "/events/";
         var ref2 = new Firebase(fb);
         ref2.once("value", function(snapshot) {
             var exists = snapshot.child(eventkey).exists();
-            console.log(exists);
             if(exists === true) {
                 //if it exists already, remove and set button to add to interested
-                console.log("button should say 'Remove'");
                 document.getElementById("buttonInterested").value = "Not Interested";
             } else {
                 //it doesnt exist. add to fb and set button to not interested
-                console.log("button should say 'Add'");
                 document.getElementById("buttonInterested").value = "Interested";
             }
         });
@@ -124,7 +121,6 @@ function getEvents(map) {
                 } else {
                     //centre map on coords
                     map.setCenter(coords);
-                    console.log("PANNED");
                     eventMarker.info.open(map, eventMarker);
                     eventMarker.info.opened = true;
                     //Set interested button
@@ -133,14 +129,11 @@ function getEvents(map) {
                     var ref = new Firebase(fb);
                     ref.once("value", function(snapshot) {
                         var exists = snapshot.child(eventkey).exists();
-                        console.log(exists);
                         if(exists === true) {
                             //if it exists already, remove and set button to add to interested
-                            console.log("button should say 'Remove'");
                             document.getElementById("buttonInterested").innerHTML = "Not Interested";
                         } else {
                             //it doesnt exist. add to fb and set button to not interested
-                            console.log("button should say 'Add'");
                             document.getElementById("buttonInterested").innerHTML = "Interested";
                         }
                     });
@@ -182,15 +175,14 @@ function drawRadius(map, userCoords, radius) {
 //}
 
 function addInterested(eventkey) {
-    console.log(eventkey);
+//    console.log(eventkey);
     var user = localStorage.getItem("uid");
-    console.log("LOCALSTORAGE: " + user);
+//    console.log("LOCALSTORAGE: " + user);
     var fb = "https://commonplaceapp.firebaseio.com/users/" + user + "/events/";
-    console.log(fb);
+//    console.log(fb);
     var ref = new Firebase(fb);
     ref.once("value", function(snapshot) {
         var exists = snapshot.child(eventkey).exists();
-        console.log(exists);
         if(exists === true) {
             ref.child(eventkey).remove();
             interestedTotal(eventkey, "remove");
@@ -208,25 +200,25 @@ function addInterested(eventkey) {
 function interestedTotal(eventkey, method) {
     var method = method;
     var key = eventkey;
-    console.log(method);
+//    console.log(method);
     var fb = "https://commonplaceapp.firebaseio.com/events/" + key;
-    console.log(fb);
+//    console.log(fb);
     var ref = new Firebase(fb);
     ref.once("value", function(snapshot) {
         var newEvent = snapshot.val();
         var interested = newEvent.interested;
-        console.log("interested old: " + interested);
+//        console.log("interested old: " + interested);
         if(method === "add") {
             //total +1
             interested = interested + 1;
-            console.log("interested new: " + interested);
+//            console.log("interested new: " + interested);
             ref.update({
                 interested: interested
             });
         } else {
             //total -1
             interested = interested - 1;
-            console.log("interested new: " + interested);
+//            console.log("interested new: " + interested);
             ref.update({
                 interested: interested
             });

@@ -11,18 +11,26 @@ $(document).ready(function(){
         console.log("newid " + newid)
 		var currval = dataset.text(); //'currval' --> 'current value' (I always forget what this means)
 		dataset.empty();
+<<<<<<< HEAD
         console.log("currval " + currval)
         $('<input type= "text" name= "' + newid + '" id="' + newid + '" value="' + currval + '" class= "hlite">').appendTo(dataset);
+=======
+        $('<input type="text" name="'+newid+'" id="'+newid+'" value="'+currval+'" class="hlite">').appendTo(dataset);
+>>>>>>> 93df7b988800f1fea0d534f0f4477dc093a10e60
 		$(this).css("display", "none");
 		savebtn.css("display", "block");
     });
     
     $(".savebtn").on("click", function(e){
+<<<<<<< HEAD
         console.log("saving");
+=======
+>>>>>>> 93df7b988800f1fea0d534f0f4477dc093a10e60
         e.preventDefault();
         var elink   = $(this).prev(".editlink");
 		var dataset = elink.prev(".datainfo");
 		var newid   = dataset.attr("id");
+<<<<<<< HEAD
 //		var cinput  = "#" + newid + "-form";
         var cinput  = newid + "-form";
 		var einput  = $(newid);
@@ -31,6 +39,11 @@ $(document).ready(function(){
         console.log(einput);
         console.log("einput" + einput.value)
         console.log("newval = " + newval)
+=======
+		var cinput  = "#"+newid+"-form";
+		var einput  = $(cinput);
+		var newval  = einput.attr("value");        
+>>>>>>> 93df7b988800f1fea0d534f0f4477dc093a10e60
 		$(this).css("display", "none");
 		einput.remove();
 		dataset.html(newval);
@@ -62,6 +75,7 @@ function populateForm() {
 
 function submitForm() {
     $("input[type='file']").each(function(){
+<<<<<<< HEAD
         if($(this).val().length == 0){
             //file not chosen
             console.log("submit form");
@@ -69,6 +83,13 @@ function submitForm() {
         } else {
             //file chosen
             console.log("uploading image");
+=======
+        if($(this).val().length === 0){
+            //file not chosen
+            saveForm();
+        } else {
+            //file chosen
+>>>>>>> 93df7b988800f1fea0d534f0f4477dc093a10e60
             imageUpload();
         }
     });
@@ -89,7 +110,10 @@ function imageUpload() {
 }
 
 function saveForm(image) {
+<<<<<<< HEAD
     console.log("saving form")
+=======
+>>>>>>> 93df7b988800f1fea0d534f0f4477dc093a10e60
     var newRef = new Firebase("https://commonplaceapp.firebaseio.com/users");
     var refCheck = newRef.orderByChild("id").on("child_added", function(snapshot) {
         var obj = {};
@@ -98,6 +122,7 @@ function saveForm(image) {
         var dfjkvd = newRef.child(ukey);
         var exists = false;
         //Grab data from form
+<<<<<<< HEAD
         var avatar = image;  //                                                __
         var alias = document.getElementById("username").innerHTML; //            |
         var email = document.getElementById("pemail").innerHTML; //              |
@@ -108,6 +133,18 @@ function saveForm(image) {
         var birthday = document.getElementById("birthday").innerHTML; //         |
         var country = document.getElementById("country").innerHTML; //           |
         var city = document.getElementById("citytown").innerHTML; //           --
+=======
+        var avatar = image;
+        var alias = document.getElementById("username").innerHTML;
+        var email = document.getElementById("pemail").innerHTML;
+        var firstname = document.getElementById("firstname").innerHTML;
+        var lastname = document.getElementById("lastname").innerHTML;
+        var bio = document.getElementById("bio").innerHTML;
+        var interests = document.getElementById("interests").innerHTML;
+        var birthday = document.getElementById("birthday").innerHTML;
+        var country = document.getElementById("country").innerHTML;
+        var city = document.getElementById("citytown").innerHTML;
+>>>>>>> 93df7b988800f1fea0d534f0f4477dc093a10e60
         //Populate object with form data
         obj["profilepic"] = avatar;
         obj["alias"] = alias;
