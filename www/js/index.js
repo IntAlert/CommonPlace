@@ -30,7 +30,6 @@ function login() {
     if (typeof(Storage) !== "undefined") {
         sessionStorage.setItem("email", email);
     }
-    console.log(sessionStorage);
     if (email === "") {
         alert("Please enter you email");
         return;
