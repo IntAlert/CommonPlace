@@ -25,37 +25,6 @@ var map;
 var userCoords;
 var userRadius;
 
-var ref = new Firebase("https://commonplaceapp.firebaseio.com/users");
-ref.authWithPassword({
-    email    : "dlucas@international-alert.org",
-    password : "1"
-}, function(error, authData) {
-    if (error) {
-        console.log("Login Failed!", error);
-        //login screen
-    } else {
-        var uid = authData.uid;
-        console.log("UID : " + uid);
-        ref.on('child_added', function(snapshot){
-            var key = snapshot.key();
-            console.log("KEY: " + key);
-            if (key === uid) {
-                console.log("PROFILE EXISTS!");
-                localStorage.setItem("uid", uid);
-                return;
-                //set global vars for user
-            } else {
-                console.log("PROFILE DOES NOT EXIST!");
-                ref.child(uid).update({
-                    provider: authData.provider,
-                    username: getName(authData)
-                });
-            }
-        console.log("Authenticated successfully with payload:", authData);
-        });
-    }
-});
-
 function onDeviceReady() {
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
@@ -269,10 +238,4 @@ function viewEvent(eventkey) {
     localStorage.setItem("eventkey", eventkey);
     localStorage.setItem("prevloc", "map.html"); //save map.html to previous location (also add GPS coords to center map)
     window.location.href = "viewevent.html";
-}
-
-function logout() {
-    console.log("LOGGING OUT");
-    ref.unauth();
-    location.reload();
 }

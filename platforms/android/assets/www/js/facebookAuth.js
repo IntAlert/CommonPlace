@@ -112,7 +112,13 @@ FB.api('/me',
     
     
     if (response.id == udata.id) {
-        dfjkvd.update(response);
+        dfjkvd.update({
+            bio: response.bio,
+            email: response.email,
+            firstname: response.first_name,
+            lastname: response.last_name,
+            profilepic: response.picture
+        });
         console.log("id exists");
         
     }

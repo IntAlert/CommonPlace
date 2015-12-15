@@ -1,3 +1,4 @@
+// ***** PUSH NOTIFICATION INIT ***** \\
 document.addEventListener("deviceready", init, false);
 
 function init() {
@@ -8,7 +9,6 @@ function init() {
     push.on('registration', function(data) {
         console.log("registered");
         console.log(data.registrationId);
-//        window.location = "map.html";
     });
 
     push.on('notification', function(data) {
@@ -19,7 +19,58 @@ function init() {
          console.log(data.sound);
          console.log(data.image);
          console.log(data.additionalData);
-//        window.location = "map.html";
     });
-    window.location = "map.html";
+}
+
+
+// ***** BEGIN CODE ***** \\
+function login() {
+    var email = document.getElementById("txtEmail").value;
+    var password = document.getElementById("txtPass").value;
+    if (typeof(Storage) !== "undefined") {
+        sessionStorage.setItem("email", email);
+    }
+    console.log(sessionStorage);
+    if (email === "") {
+        alert("Please enter you email");
+        return;
+    } else if (password === "") {
+        alert("Please enter you password");
+        return;
+    } else {
+        var ref = new Firebase("https://commonplaceapp.firebaseio.com");
+        ref.authWithPassword({
+            email    : email,
+            password : password
+        }, function(error, authData) {
+            if (error) {
+                console.log("Login Failed!", error);
+            } else {
+                console.log("Authenticated successfully with payload:", authData);
+                window.location = "map.html";
+            }
+        });
+    }
+}
+
+function newuser() {
+    var newRef = new Firebase("https://commonplaceapp.firebaseio.com/users");
+    var obj = {};
+    var uemail = document.getElementById("txtEmail").value;
+    var pass = document.getElementById("txtPass").value;
+    console.log(uemail);
+    obj["email"] = uemail;
+    
+    ref.createUser({
+        email    : uemail,
+        password : pass
+    }, function(error, userData) {
+        if (error) {
+            console.log("Error creating user:", error);
+        } else {
+            console.log("Successfully created user account");
+            newRef.push(obj);
+        }
+        console.log(ref.createUser);
+    });
 }

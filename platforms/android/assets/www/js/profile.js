@@ -24,6 +24,7 @@ function getProfile() {
         document.getElementById("interests").innerHTML = interests;
     });
     getEvents(link);
+    getFollowing(link);
 }
 
 function getEvents(link) {
@@ -53,6 +54,28 @@ function getEvents(link) {
     });
 }
 
+function getFollowing(link) {
+    var followingLink = link + "/following"; //craft following link
+    var ref = new Firebase(followingLink); //connect to firebase
+    ref.on("child_added", function(snapshot) {
+        var followingkey = snapshot.key(); //pull keys
+        console.log("following: " + followingkey);
+        var ref2 = new Firebase("https://commonplaceapp.firebaseio.com/users/" + followingkey); //connect to new firebase with userkey
+        ref2.on("value", function(snapshot) {
+            var userObject = snapshot.val(); //pull record
+            var profilepic = userObject.profilepic; //extract profilepic
+            var fullname = userObject.firstname + " " + userObject.lastname;
+            $("#following").append("<img class='followingpic' src='" + profilepic + "' title='" + fullname + "' alt='Unable to load image' onclick='viewUser(\"" + followingkey + "\");'>"); //embed into following
+        });
+    });
+}
+
+function viewUser(key) {
+    console.log("KEY: " + key);
+    localStorage.setItem("viewprofileid", key);
+    window.location = "viewprofile.html";
+}
+
 function viewEvent(eventkey) {
     localStorage.setItem("eventkey", eventkey);
     localStorage.setItem("prevloc", "profile.html"); //save map.html to previous location (also add GPS coords to center map)
@@ -76,8 +99,11 @@ function removeEvent(eventkey) {
             getEvents(link);
         } else {
             ref.child(eventkey).remove();
-            console.log("EMPTY LIST!!")
             document.getElementById("eventtable").innerHTML = "<p>You do not have any events in your list</p>";
         }
     });
+}
+
+function editProfile() {
+    window.location = "editprofile.html";
 }

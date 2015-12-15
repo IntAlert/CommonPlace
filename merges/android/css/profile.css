@@ -22,13 +22,13 @@ h1 {
     width: 200px;
 }
 
-.friends {
+.following {
     height: 64px;
     overflow:auto;
     white-space:nowrap;
 }
 
-.friendpic {
+.followingpic {
     border: 1px solid;
     height: 48px;
     width: 48px;
@@ -65,4 +65,10 @@ td {
 hr {
     margin-bottom: 10px;
     margin-top: 10px;
+}
+
+.buttonback {
+    margin-left: 10px;
+    margin-top: -10px;
+    position: fixed;
 }
