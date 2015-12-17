@@ -26,36 +26,15 @@ module.exports = [
         "clobbers": [
             "PushNotification"
         ]
-    },
-    {
-        "file": "plugins/com.oauthio.plugins.oauthio/dist/oauth.js",
-        "id": "com.oauthio.plugins.oauthio.OAuth",
-        "merges": [
-            "OAuth"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
-        "id": "cordova-plugin-inappbrowser.inappbrowser",
-        "clobbers": [
-            "cordova.InAppBrowser.open",
-            "window.open"
-        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
     "cordova-plugin-calendar": "4.4.4",
-<<<<<<< HEAD
-    "phonegap-plugin-push": "1.4.4",
-    "com.oauthio.plugins.oauthio": "0.2.4",
-    "cordova-plugin-inappbrowser": "1.1.1"
-=======
     "cordova-plugin-geolocation": "1.0.1",
     "cordova-plugin-whitelist": "1.0.0",
     "phonegap-plugin-push": "1.4.4"
->>>>>>> 528b63ff9b17226edbaaef2ee01f12b27e2583ab
 }
 // BOTTOM OF METADATA
 });

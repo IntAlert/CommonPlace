@@ -1,4 +1,8 @@
 var user = localStorage.getItem("viewprofileid");
+<<<<<<< HEAD
+console.log("USER ID: " + user);
+=======
+>>>>>>> 93df7b988800f1fea0d534f0f4477dc093a10e60
 getProfile();
 
 function getProfile() {
@@ -30,6 +34,10 @@ function getFollowing(link) {
     var ref = new Firebase(followingLink); //connect to firebase
     ref.on("child_added", function(snapshot) {
         var followingkey = snapshot.key(); //pull keys
+<<<<<<< HEAD
+        console.log("following: " + followingkey);
+=======
+>>>>>>> 93df7b988800f1fea0d534f0f4477dc093a10e60
         var ref2 = new Firebase("https://commonplaceapp.firebaseio.com/users/" + followingkey); //connect to new firebase with userkey
         ref2.on("value", function(snapshot) {
             var userObject = snapshot.val(); //pull record
