@@ -1,6 +1,7 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
     {
+<<<<<<< HEAD
         "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
         "id": "cordova-plugin-inappbrowser.inappbrowser",
         "pluginId": "cordova-plugin-inappbrowser",
@@ -18,6 +19,8 @@ module.exports = [
         ]
     },
     {
+=======
+>>>>>>> 5bd3302147ff576d38a10e8399fe5f8b2b086025
         "file": "plugins/cordova-plugin-calendar/www/Calendar.js",
         "id": "cordova-plugin-calendar.Calendar",
         "pluginId": "cordova-plugin-calendar",
@@ -48,8 +51,11 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
+<<<<<<< HEAD
     "cordova-plugin-inappbrowser": "1.1.1",
     "com.oauthio.plugins.oauthio": "0.2.4",
+=======
+>>>>>>> 5bd3302147ff576d38a10e8399fe5f8b2b086025
     "cordova-plugin-calendar": "4.4.4",
     "cordova-plugin-geolocation": "1.0.1",
     "cordova-plugin-whitelist": "1.0.0",

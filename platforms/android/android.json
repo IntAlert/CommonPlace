@@ -9,6 +9,7 @@
                 "parents": {
                     "/*": [
                         {
+<<<<<<< HEAD
                             "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
                             "count": 1
                         },
@@ -17,6 +18,8 @@
                             "count": 1
                         },
                         {
+=======
+>>>>>>> 5bd3302147ff576d38a10e8399fe5f8b2b086025
                             "xml": "<feature name=\"Calendar\"><param name=\"android-package\" value=\"nl.xservices.plugins.Calendar\" /></feature>",
                             "count": 1
                         },
@@ -108,12 +111,15 @@
         }
     },
     "installed_plugins": {
+<<<<<<< HEAD
         "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "org.intalert.commonplace"
         },
         "com.oauthio.plugins.oauthio": {
             "PACKAGE_NAME": "org.intalert.commonplace"
         },
+=======
+>>>>>>> 5bd3302147ff576d38a10e8399fe5f8b2b086025
         "cordova-plugin-calendar": {
             "PACKAGE_NAME": "org.intalert.commonplace"
         },
@@ -130,6 +136,7 @@
     "dependent_plugins": {},
     "modules": [
         {
+<<<<<<< HEAD
             "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
             "id": "cordova-plugin-inappbrowser.inappbrowser",
             "pluginId": "cordova-plugin-inappbrowser",
@@ -147,6 +154,8 @@
             ]
         },
         {
+=======
+>>>>>>> 5bd3302147ff576d38a10e8399fe5f8b2b086025
             "file": "plugins/cordova-plugin-calendar/www/Calendar.js",
             "id": "cordova-plugin-calendar.Calendar",
             "pluginId": "cordova-plugin-calendar",
@@ -175,8 +184,11 @@
         }
     ],
     "plugin_metadata": {
+<<<<<<< HEAD
         "cordova-plugin-inappbrowser": "1.1.1",
         "com.oauthio.plugins.oauthio": "0.2.4",
+=======
+>>>>>>> 5bd3302147ff576d38a10e8399fe5f8b2b086025
         "cordova-plugin-calendar": "4.4.4",
         "cordova-plugin-geolocation": "1.0.1",
         "cordova-plugin-whitelist": "1.0.0",
