@@ -15,18 +15,11 @@
         
         <script src="https://fb.me/react-0.14.2.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/path.js/0.8.4/path.min.js"></script>
-<<<<<<< HEAD
 <!--        <script src="js/oauth.js"></script>-->
         <script src="js/facebookAuth.js"></script>
-=======
-<<<<<<< HEAD
-=======
-        <script src="js/oauth.js"></script>
->>>>>>> 93df7b988800f1fea0d534f0f4477dc093a10e60
->>>>>>> 528b63ff9b17226edbaaef2ee01f12b27e2583ab
         <script src="js/twitterAuth.js"></script>
         <script src="https://connect.facebook.net/en_US/all.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+        <script src="js/index.js"></script>
                 
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.firebase.com https://*.firebaseio.com; object-src 'self'; style-src 'self' 'unsafe-inline' https://maxcdn.bootstrapcdn.com; img-src 'self'; media-src 'none'; font-src 'self' https://maxcdn.bootstrapcdn.com; connect-src 'self' https://*.firebase.com https://*.firebaseio.com wss://*.firebaseio.com https://oauth.io; child-src 'self' http://*.facebook.com https://*.facebook.com wss://*.facebook.com https://*.firebaseio.com">
     </head>
@@ -34,11 +27,7 @@
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
-<<<<<<< HEAD
-                    <a class="navbar-brand" href="index.html">Common Place</a>
-=======
                     <a class="navbar-brand" href="#">Common Place</a>
->>>>>>> 93df7b988800f1fea0d534f0f4477dc093a10e60
                 </div>
             </div>
         </nav>
@@ -53,7 +42,7 @@
                 <button type="button" class="btn btn-default btn-block btn-primary loginbtn" onClick="login();">Login</button>
 <!--                <fb:login-button scope="public_profile,email" onClick="checkLoginState();"></fb:login-button>-->
                 <h4>or</h4>
-                <img src="images/sign-in-with-twitter-gray.png" class="twitterbtn" alt="button" onclick="authMe();" />
+                <img src="images/sign-in-with-twitter-gray.png" class="twitterbtn" alt="button" onclick="twitterLogin();" />
                 <hr>
                 <button type="button" class="btn btn-default newuserbtn" onclick="window.location = 'signup.html';">New User</button>
             </form>

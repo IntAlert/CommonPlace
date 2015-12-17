@@ -4,23 +4,10 @@
         "uninstalled": []
     },
     "config_munge": {
-<<<<<<< HEAD
         "files": {
             "res/xml/config.xml": {
                 "parents": {
                     "/*": [
-                        {
-                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Calendar\"><param name=\"android-package\" value=\"nl.xservices.plugins.Calendar\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"PushNotification\"><param name=\"android-package\" value=\"com.adobe.phonegap.push.PushPlugin\" /></feature>",
-                            "count": 1
-                        },
                         {
                             "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
                             "count": 1
@@ -28,22 +15,24 @@
                         {
                             "xml": "<access origin=\"https://oauth.io\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Calendar\"><param name=\"android-package\" value=\"nl.xservices.plugins.Calendar\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"PushNotification\"><param name=\"android-package\" value=\"com.adobe.phonegap.push.PushPlugin\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
             },
             "AndroidManifest.xml": {
                 "parents": {
-                    "/*": [
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
-                            "count": 1
-                        }
-                    ],
                     "/manifest": [
                         {
                             "xml": "<uses-permission android:name=\"android.permission.READ_CALENDAR\" />",
@@ -82,6 +71,16 @@
                             "count": 1
                         }
                     ],
+                    "/*": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
+                            "count": 1
+                        }
+                    ],
                     "/manifest/application": [
                         {
                             "xml": "<activity android:exported=\"true\" android:name=\"com.adobe.phonegap.push.PushHandlerActivity\" />",
@@ -107,11 +106,11 @@
                 }
             }
         }
-=======
-        "files": {}
->>>>>>> 528b63ff9b17226edbaaef2ee01f12b27e2583ab
     },
     "installed_plugins": {
+        "com.oauthio.plugins.oauthio": {
+            "PACKAGE_NAME": "org.intalert.commonplace"
+        },
         "cordova-plugin-calendar": {
             "PACKAGE_NAME": "org.intalert.commonplace"
         },
@@ -122,9 +121,6 @@
             "PACKAGE_NAME": "org.intalert.commonplace"
         },
         "phonegap-plugin-push": {
-            "PACKAGE_NAME": "org.intalert.commonplace"
-        },
-        "com.oauthio.plugins.oauthio": {
             "PACKAGE_NAME": "org.intalert.commonplace"
         }
     },
