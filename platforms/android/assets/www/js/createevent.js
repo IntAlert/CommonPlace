@@ -51,7 +51,7 @@ function imageUpload() {
         console.log(reader.result);
         var eventimage = reader.result;
         eventCreate(eventimage);
-    }
+    };
 
     if (file) {
         reader.readAsDataURL(file);

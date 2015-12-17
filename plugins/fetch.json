@@ -30,5 +30,22 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "cordova-plugin-inappbrowser": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-inappbrowser"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "com.oauthio.plugins.oauthio": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/oauth-io/oauth-phonegap",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

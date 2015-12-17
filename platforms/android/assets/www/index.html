@@ -7,20 +7,21 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/index.css">
         
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/PushNotification.js"></script>
+        <script src="cordova.js"></script>
+        <script src="js/PushNotification.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script src="https://cdn.firebase.com/js/client/2.3.0/firebase.js"></script>
         
         <script src="https://fb.me/react-0.14.2.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/path.js/0.8.4/path.min.js"></script>
-        <script src="js/oauth.js"></script>
+<!--        <script src="js/oauth.js"></script>-->
+        <script src="js/facebookAuth.js"></script>
         <script src="js/twitterAuth.js"></script>
         <script src="https://connect.facebook.net/en_US/all.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
                 
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.firebase.com https://*.firebaseio.com; object-src 'self'; style-src 'self' 'unsafe-inline' https://maxcdn.bootstrapcdn.com; img-src 'self'; media-src 'none'; font-src 'self' https://maxcdn.bootstrapcdn.com; connect-src 'self' https://*.firebase.com https://*.firebaseio.com wss://*.firebaseio.com; frame-src gap://ready">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.firebase.com https://*.firebaseio.com; object-src 'self'; style-src 'self' 'unsafe-inline' https://maxcdn.bootstrapcdn.com; img-src 'self'; media-src 'none'; font-src 'self' https://maxcdn.bootstrapcdn.com; connect-src 'self' https://*.firebase.com https://*.firebaseio.com wss://*.firebaseio.com https://oauth.io; child-src 'self' http://*.facebook.com https://*.facebook.com wss://*.facebook.com https://*.firebaseio.com">
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -39,9 +40,9 @@
                 <label for="txtPass">Password</label>
                 <input type="password" class="form-control" id="txtPass" placeholder="Password" name="password" />
                 <button type="button" class="btn btn-default btn-block btn-primary loginbtn" onClick="login();">Login</button>
-<!-- ****           <fb:login-button scope="public_profile,email" onClick="checkLoginState();"></fb:login-button>--> <!--DOESNT LOAD-->
+<!--                <fb:login-button scope="public_profile,email" onClick="checkLoginState();"></fb:login-button>-->
                 <h4>or</h4>
-                <input type="image" src="images/sign-in-with-twitter-gray.png" class="twitterbtn" alt="button" onclick="authMe();" />
+                <img src="images/sign-in-with-twitter-gray.png" class="twitterbtn" alt="button" onclick="authMe();" />
                 <hr>
                 <button type="button" class="btn btn-default newuserbtn" onclick="window.location = 'signup.html';">New User</button>
             </form>
