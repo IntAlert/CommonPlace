@@ -2,10 +2,13 @@ var user = localStorage.getItem("uid");
 getProfile();
 
 function getProfile() {
+    var ref = new Firebase("https://commonplaceapp.firebaseio.com");
     var link = "https://commonplaceapp.firebaseio.com/users/" + user;
+    console.log("link: " + link);
     var ref = new Firebase(link);
     ref.on("value", function(snapshot) {
         var newEvent = snapshot.val();
+        console.log("profile: " + newEvent);
         var profilepic = newEvent.profilepic;
         if (profilepic === undefined || null) { //IF INVALID THEN SET TO PLACEHOLDER
             profilepic = "images/profileplaceholder.png";

@@ -1,7 +1,9 @@
+var authData = "";
 // Create a callback which logs the current auth state
 function authDataCallback(authData) {
     if (authData) {
         console.log("User " + authData.uid + " is logged in with " + authData.provider);
+        authData = authData.uid;
     } else {
         console.log("User is logged out");
         window.location = "index.html";

@@ -54,7 +54,7 @@ function populateForm() {
 
 function submitForm() {
     $("input[type='file']").each(function(){
-        if($(this).val().length == 0){
+        if($(this).val().length === 0){
             //file not chosen
             saveForm();
         } else {
@@ -87,16 +87,16 @@ function saveForm(image) {
         var dfjkvd = newRef.child(ukey);
         var exists = false;
         //Grab data from form
-        var avatar = image;  //                                                __
-        var alias = document.getElementById("username").innerHTML; //            |
-        var email = document.getElementById("pemail").innerHTML; //              |
-        var firstname = document.getElementById("firstname").innerHTML; //       |
-        var lastname = document.getElementById("lastname").innerHTML; //         |
-        var bio = document.getElementById("bio").innerHTML; //                    > It may be time-consuming, but it's a necessary evil
-        var interests = document.getElementById("interests").innerHTML; //       |
-        var birthday = document.getElementById("birthday").innerHTML; //         |
-        var country = document.getElementById("country").innerHTML; //           |
-        var city = document.getElementById("citytown").innerHTML; //           --
+        var avatar = image;
+        var alias = document.getElementById("username").innerHTML;
+        var email = document.getElementById("pemail").innerHTML;
+        var firstname = document.getElementById("firstname").innerHTML;
+        var lastname = document.getElementById("lastname").innerHTML;
+        var bio = document.getElementById("bio").innerHTML;
+        var interests = document.getElementById("interests").innerHTML;
+        var birthday = document.getElementById("birthday").innerHTML;
+        var country = document.getElementById("country").innerHTML;
+        var city = document.getElementById("citytown").innerHTML;
         //Populate object with form data
         obj["profilepic"] = avatar;
         obj["alias"] = alias;

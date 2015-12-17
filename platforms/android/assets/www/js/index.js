@@ -46,6 +46,7 @@ function login() {
                 console.log("Login Failed!", error);
             } else {
                 console.log("Authenticated successfully with payload:", authData);
+                localStorage.setItem("uid", authData.uid);
                 window.location = "map.html";
             }
         });
