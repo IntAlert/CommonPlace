@@ -11,38 +11,22 @@ $(document).ready(function(){
         console.log("newid " + newid)
 		var currval = dataset.text(); //'currval' --> 'current value' (I always forget what this means)
 		dataset.empty();
-<<<<<<< HEAD
         console.log("currval " + currval)
         $('<input type= "text" name= "' + newid + '" id="' + newid + '" value="' + currval + '" class= "hlite">').appendTo(dataset);
-=======
-<<<<<<< HEAD
         console.log("currval " + currval)
         $('<input type= "text" name= "' + newid + '" id="' + newid + '" value="' + currval + '" class= "hlite">').appendTo(dataset);
-=======
->>>>>>> 5bd3302147ff576d38a10e8399fe5f8b2b086025
         $('<input type="text" name="'+newid+'" id="'+newid+'" value="'+currval+'" class="hlite">').appendTo(dataset);
->>>>>>> 93df7b988800f1fea0d534f0f4477dc093a10e60
 		$(this).css("display", "none");
 		savebtn.css("display", "block");
     });
     
     $(".savebtn").on("click", function(e){
-<<<<<<< HEAD
         console.log("saving");
-=======
-<<<<<<< HEAD
         console.log("saving");
-=======
->>>>>>> 93df7b988800f1fea0d534f0f4477dc093a10e60
->>>>>>> 5bd3302147ff576d38a10e8399fe5f8b2b086025
         e.preventDefault();
         var elink   = $(this).prev(".editlink");
 		var dataset = elink.prev(".datainfo");
 		var newid   = dataset.attr("id");
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 5bd3302147ff576d38a10e8399fe5f8b2b086025
 //		var cinput  = "#" + newid + "-form";
         var cinput  = newid + "-form";
 		var einput  = $(newid);
@@ -51,17 +35,12 @@ $(document).ready(function(){
         console.log(einput);
         console.log("einput" + einput.value)
         console.log("newval = " + newval)
-<<<<<<< HEAD
 		var cinput  = "#"+newid+"-form";
 		var einput  = $(cinput);
 		var newval  = einput.attr("value");
-=======
-=======
 		var cinput  = "#"+newid+"-form";
 		var einput  = $(cinput);
-		var newval  = einput.attr("value");        
->>>>>>> 93df7b988800f1fea0d534f0f4477dc093a10e60
->>>>>>> 5bd3302147ff576d38a10e8399fe5f8b2b086025
+		var newval  = einput.attr("value");
 		$(this).css("display", "none");
 		einput.remove();
 		dataset.html(newval);
@@ -93,10 +72,6 @@ function populateForm() {
 
 function submitForm() {
     $("input[type='file']").each(function(){
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 5bd3302147ff576d38a10e8399fe5f8b2b086025
         if($(this).val().length == 0){
             //file not chosen
             console.log("submit form");
@@ -104,16 +79,11 @@ function submitForm() {
         } else {
             //file chosen
             console.log("uploading image");
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 5bd3302147ff576d38a10e8399fe5f8b2b086025
         if($(this).val().length === 0){
             //file not chosen
             saveForm();
         } else {
             //file chosen
->>>>>>> 93df7b988800f1fea0d534f0f4477dc093a10e60
             imageUpload();
         }
     });
@@ -134,14 +104,8 @@ function imageUpload() {
 }
 
 function saveForm(image) {
-<<<<<<< HEAD
     console.log("saving form")
-=======
-<<<<<<< HEAD
     console.log("saving form")
-=======
->>>>>>> 93df7b988800f1fea0d534f0f4477dc093a10e60
->>>>>>> 5bd3302147ff576d38a10e8399fe5f8b2b086025
     var newRef = new Firebase("https://commonplaceapp.firebaseio.com/users");
     var refCheck = newRef.orderByChild("id").on("child_added", function(snapshot) {
         var obj = {};
@@ -150,10 +114,6 @@ function saveForm(image) {
         var dfjkvd = newRef.child(ukey);
         var exists = false;
         //Grab data from form
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 5bd3302147ff576d38a10e8399fe5f8b2b086025
         var avatar = image;  //                                                __
         var alias = document.getElementById("username").innerHTML; //            |
         var email = document.getElementById("pemail").innerHTML; //              |
@@ -164,10 +124,6 @@ function saveForm(image) {
         var birthday = document.getElementById("birthday").innerHTML; //         |
         var country = document.getElementById("country").innerHTML; //           |
         var city = document.getElementById("citytown").innerHTML; //           --
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 5bd3302147ff576d38a10e8399fe5f8b2b086025
         var avatar = image;
         var alias = document.getElementById("username").innerHTML;
         var email = document.getElementById("pemail").innerHTML;
@@ -178,7 +134,6 @@ function saveForm(image) {
         var birthday = document.getElementById("birthday").innerHTML;
         var country = document.getElementById("country").innerHTML;
         var city = document.getElementById("citytown").innerHTML;
->>>>>>> 93df7b988800f1fea0d534f0f4477dc093a10e60
         //Populate object with form data
         obj["profilepic"] = avatar;
         obj["alias"] = alias;
