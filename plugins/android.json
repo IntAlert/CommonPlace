@@ -4,6 +4,18 @@
         "uninstalled": []
     },
     "config_munge": {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        "files": {}
+    },
+    "installed_plugins": {
+        "com.oauthio.plugins.oauthio": {
+            "PACKAGE_NAME": "org.intalert.commonplace"
+        },
+=======
+<<<<<<< HEAD
+>>>>>>> ae3bf5a5129d8badff2ca9d6b9512641770616c3
         "files": {
             "res/xml/config.xml": {
                 "parents": {
@@ -108,15 +120,25 @@
         }
     },
     "installed_plugins": {
+<<<<<<< HEAD
         "com.oauthio.plugins.oauthio": {
             "PACKAGE_NAME": "org.intalert.commonplace"
         },
+=======
+>>>>>>> 5bd3302147ff576d38a10e8399fe5f8b2b086025
+>>>>>>> ae3bf5a5129d8badff2ca9d6b9512641770616c3
         "cordova-plugin-calendar": {
             "PACKAGE_NAME": "org.intalert.commonplace"
         },
         "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "org.intalert.commonplace"
         },
+<<<<<<< HEAD
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "org.intalert.commonplace"
+        },
+=======
+>>>>>>> 5bd3302147ff576d38a10e8399fe5f8b2b086025
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "org.intalert.commonplace"
         },

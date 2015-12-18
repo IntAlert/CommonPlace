@@ -246,8 +246,16 @@ dependencies {
     // SUB-PROJECT DEPENDENCIES START
     debugCompile project(path: "CordovaLib", configuration: "debug")
     releaseCompile project(path: "CordovaLib", configuration: "release")
+<<<<<<< HEAD
     compile "com.android.support:support-v13:23+"
     compile "com.google.android.gms:play-services-gcm:+"
+=======
+<<<<<<< HEAD
+    compile "com.android.support:support-v13:23+"
+    compile "com.google.android.gms:play-services-gcm:+"
+=======
+>>>>>>> 5bd3302147ff576d38a10e8399fe5f8b2b086025
+>>>>>>> ae3bf5a5129d8badff2ca9d6b9512641770616c3
     // SUB-PROJECT DEPENDENCIES END
 }
 
