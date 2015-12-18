@@ -12,16 +12,12 @@ $(document).ready(function(){
 		var currval = dataset.text(); //'currval' --> 'current value' (I always forget what this means)
 		dataset.empty();
         console.log("currval " + currval)
-        $('<input type= "text" name= "' + newid + '" id="' + newid + '" value="' + currval + '" class= "hlite">').appendTo(dataset);
-        console.log("currval " + currval)
-        $('<input type= "text" name= "' + newid + '" id="' + newid + '" value="' + currval + '" class= "hlite">').appendTo(dataset);
-        $('<input type="text" name="'+newid+'" id="'+newid+'" value="'+currval+'" class="hlite">').appendTo(dataset);
+        $('<input type="text" name="' + newid + '" id="' + newid + '" value="' + currval + '" class= "hlite">').appendTo(dataset);
 		$(this).css("display", "none");
 		savebtn.css("display", "block");
     });
     
     $(".savebtn").on("click", function(e){
-        console.log("saving");
         console.log("saving");
         e.preventDefault();
         var elink   = $(this).prev(".editlink");
@@ -49,17 +45,17 @@ $(document).ready(function(){
 });
 
 function populateForm() {
-    var email = sessionStorage.getItem("email");
-    console.log(sessionStorage);
-    var newRef = new Firebase("https://commonplaceapp.firebaseio.com/users");
-    var refCheck = newRef.orderByChild("email").equalTo(email).on("child_added", function(snapshot) {   
+    var uid = localStorage.getItem("uid");
+    console.log("UID: " + uid);
+    var newRef = new Firebase("https://commonplaceapp.firebaseio.com/users/" + uid);
+    var refCheck = newRef.on("value", function(snapshot) {   
         var udata = snapshot.val();
         var ukey = snapshot.key();
         var dfjkvd = newRef.child(ukey);   
         console.log(ukey);
         document.getElementById("thelastairbender").innerHTML = udata.profilepic;
         document.getElementById("username").innerHTML = udata.alias;
-        document.getElementById("pemail").innerHTML = email;
+        document.getElementById("pemail").innerHTML = udata.email;
         document.getElementById("firstname").innerHTML = udata.firstname;
         document.getElementById("lastname").innerHTML = udata.lastname; 
         document.getElementById("bio").innerHTML = udata.bio;   
@@ -72,13 +68,6 @@ function populateForm() {
 
 function submitForm() {
     $("input[type='file']").each(function(){
-        if($(this).val().length == 0){
-            //file not chosen
-            console.log("submit form");
-            saveForm();
-        } else {
-            //file chosen
-            console.log("uploading image");
         if($(this).val().length === 0){
             //file not chosen
             saveForm();

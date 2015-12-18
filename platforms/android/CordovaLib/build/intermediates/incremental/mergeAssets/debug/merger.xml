@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<merger version="3"><dataSet config="main"><source path="/Users/Dan/Documents/CommonPlace/CommonPlace/platforms/android/CordovaLib/assets"/></dataSet><dataSet config="debug"><source path="/Users/Dan/Documents/CommonPlace/CommonPlace/platforms/android/CordovaLib/src/debug/assets"/></dataSet></merger>
-=======
-<merger version="3"><dataSet config="main"><source path="C:\wamp\www\test\CommonPlace\platforms\android\CordovaLib\assets"/></dataSet><dataSet config="debug"><source path="C:\wamp\www\test\CommonPlace\platforms\android\CordovaLib\src\debug\assets"/></dataSet></merger>
->>>>>>> ae3bf5a5129d8badff2ca9d6b9512641770616c3
