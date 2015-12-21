@@ -52,8 +52,12 @@ h4 {
     width: 40%;
 }
 
-/*
-.rememberme {
-    display: flex;
-    float:right;
-}*/
+.loading {
+    margin-top: 250px;
+    text-align: center;
+}
+
+.loadinggif {
+    height: 100px;
+    width: 100px;
+}
