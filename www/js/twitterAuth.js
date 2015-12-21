@@ -47,6 +47,7 @@
 //                    window.location = "map.html";
 
 function twitterLogin() {
+    document.getElementById("login").innerHTML = "<div class='loading' id='loading'><img class='loadinggif' src='images/loading.gif'></div>";
     var ref = new Firebase("https://commonplaceapp.firebaseio.com/users");
     ref.authWithOAuthPopup("twitter", function(error, authData) {
         if (error) {
